@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './index.css';
-import App from './App';
+import HomePage from './Homepage/HomePage';
+import Register from './Register/register';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Switch>
+        <Route exact path={"/"} component={HomePage} />
+        <Route exact path={"/signup"} component={Register} />
+        <Route render={() => <h1>Path not found!</h1>} />
+        <HomePage />
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

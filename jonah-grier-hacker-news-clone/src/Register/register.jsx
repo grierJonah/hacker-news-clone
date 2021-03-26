@@ -1,9 +1,9 @@
-import "./App.css";
+import "./register.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
-class App extends React.Component {
+class Register extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -39,7 +39,7 @@ class App extends React.Component {
 			.post("http://localhost:4000/signup", newRegisteredUser)
 			.then((response) => console.log(response.data));
 
-		// window.location();
+		document.location = "../";
 		this.setState({
 			username: "",
 			password: "",
@@ -50,27 +50,41 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				<div className="container">
-					<div className="form-div">
+					<div className="form-group">
 						<form onSubmit={this.sendToDatabase.bind(this)}>
-							<input
-								type="text"
-								placeholder="Username"
-								onChange={this.changeUsername}
-								value={this.state.username}
-								className="form-control form-group"
-							/>
-							<input
-								type="password"
-								placeholder="Password"
-								onChange={this.changePassword}
-								value={this.state.password}
-								className="form-control form-group"
-							/>
-							<input
-								type="submit"
-								className="btn btn-success btn-block"
-								value="Submit"
-							/>
+							<div class="form-group">
+								<label for="username">Username:</label>
+								<input
+									type="text"
+									placeholder="Username"
+									onChange={this.changeUsername}
+									value={this.state.username}
+									className="form-control form-group"
+								/>
+								<small
+									id="emailHelp"
+									class="form-text text-muted">
+									We'll never share your email with anyone
+									else.
+								</small>
+							</div>
+							<div lass="form-group">
+								<input
+									type="password"
+									placeholder="Password"
+									minLength="8"
+									onChange={this.changePassword}
+									value={this.state.password}
+									className="form-control form-group register"
+								/>
+							</div>
+							<div class="form-group" id="register-outer-button">
+								<input
+									type="submit"
+									className="btn btn-primary"
+									value="Register"
+								/>
+							</div>
 						</form>
 					</div>
 				</div>
@@ -79,4 +93,4 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+export default Register;

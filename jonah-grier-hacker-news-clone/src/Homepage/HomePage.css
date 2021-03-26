@@ -1,0 +1,114 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.nav-section {
+	margin: 0 50px;
+}
+
+.navigation-bar {
+	display: flex;
+	flex-direction: row;
+}
+
+.header-navigation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+ul {
+	list-style-type: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: rgb(255, 91, 0);
+}
+li {
+	display: inline;
+}
+
+.user-login {
+	float: right;
+}
+
+.user-login a {
+	color: black;
+}
+
+.user-register {
+	float: right;
+	margin-right: 10px;
+}
+
+.user-register a {
+	color: black;
+}
+
+#hack-news-logo-container {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#hacker-news-logo {
+	height: 15px;
+	width: 15px;
+	border: 1px solid white;
+	display: inline-block;
+	color: white;
+	text-align: center;
+	font-size: 11px;
+	font-weight: bolder;
+	margin: 0px 2px;
+}
+/***********************************
+*
+    Navbar above
+*
+************************************/
+
+.main-body-container-section {
+	background-color: rgb(246, 246, 239);
+	border: 1px solid black;
+	margin: 0 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.footer-container {
+	display: inline;
+	position: absolute;
+	width: auto;
+	bottom: 0;
+	left: 3%;
+	right: 3%;
+	background-color: rgb(246, 246, 239);
+	text-align: center;
+}
+
+.center-footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#search-bar {
+	display: inline-block;
+	margin: 5px 10px 5px;
+	justify-content: center;
+}
+
+.center-footer li *::after {
+	content: " ";
+}
+
+.center-footer li *::before {
+	content: " ";
+}
+
+footer li::before {
+	content: " ";
+}
