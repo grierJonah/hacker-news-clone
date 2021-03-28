@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './index.css';
 import HomePage from './Homepage/HomePage';
 import Register from './Register/register';
+import Login from './Login/login'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path={"/"} component={HomePage} />
         <Route exact path={"/signup"} component={Register} />
+        <Route exact path={"/login"} component={Login} />
         <Route render={() => <h1>Path not found!</h1>} />
         <HomePage />
       </Switch>

@@ -14,12 +14,29 @@ export default class HomePage extends React.Component {
 							<li>
 								<b>Hacker News Clone</b>&nbsp;
 							</li>
-							<li className="tags" id="new-tag">new</li><li className="tags" id="past-tag">&nbsp;past</li>
-							<li className="tags" id="comments-tag">&nbsp;comments</li><li className="tags" id="ask-tag">&nbsp;ask</li>
-							<li className="tags" id="show-tag">&nbsp;show</li><li className="tags" id="jobs-tag">&nbsp;jobs</li>
-							<li className="tags" id="submit-tag">&nbsp;submit</li>
+							<li className="tags" id="new-tag">
+								new
+							</li>
+							<li className="tags" id="past-tag">
+								&nbsp;past
+							</li>
+							<li className="tags" id="comments-tag">
+								&nbsp;comments
+							</li>
+							<li className="tags" id="ask-tag">
+								&nbsp;ask
+							</li>
+							<li className="tags" id="show-tag">
+								&nbsp;show
+							</li>
+							<li className="tags" id="jobs-tag">
+								&nbsp;jobs
+							</li>
+							<li className="tags" id="submit-tag">
+								&nbsp;submit
+							</li>
 							<li className="user-login">
-								<a href="">login</a>
+								<a href="../login/">login</a>
 							</li>
 							<li className="user-register">
 								&nbsp;
@@ -51,8 +68,6 @@ export default class HomePage extends React.Component {
 							</li>
 						</ol>
 					</div>
-
-					
 				</section>
 			</div>
 		);
