@@ -14,10 +14,10 @@ export default class HomePage extends React.Component {
 							<li>
 								<b>Hacker News Clone</b>&nbsp;
 							</li>
-							<li>new</li> |<li>&nbsp;past</li> |
-							<li>&nbsp;comments</li> |<li>&nbsp;ask</li> |
-							<li>&nbsp;show</li> |<li>&nbsp;jobs</li> |
-							<li>&nbsp;submit</li>
+							<li className="tags" id="new-tag">new</li><li className="tags" id="past-tag">&nbsp;past</li>
+							<li className="tags" id="comments-tag">&nbsp;comments</li><li className="tags" id="ask-tag">&nbsp;ask</li>
+							<li className="tags" id="show-tag">&nbsp;show</li><li className="tags" id="jobs-tag">&nbsp;jobs</li>
+							<li className="tags" id="submit-tag">&nbsp;submit</li>
 							<li className="user-login">
 								<a href="">login</a>
 							</li>
@@ -34,21 +34,25 @@ export default class HomePage extends React.Component {
 							<li>
 								<p>Here is first post</p>
 							</li>
+							<li>
+								<p>Here is second post</p>
+							</li>
+							<li>
+								<p>Here is third post</p>
+							</li>
+							<li>
+								<p>Here is fourth post</p>
+							</li>
+							<li>
+								<p>Here is fifth post</p>
+							</li>
+							<li>
+								<p>Here is sixth post</p>
+							</li>
 						</ol>
 					</div>
 
-					<div className="footer-container">
-						<div className="center-footer">
-							<li>Guidelines</li>|<li>FAQ</li>|<li>LISTS</li>|
-							<li>API</li>|<li>Security</li>|<li>Legal</li>|
-							<li>Apply to YC</li>|<li>Contact</li>
-							<br />
-						</div>
-						<div id="search-bar">
-							<p id="search-bar">Search:</p>
-							<input type="text"></input>
-						</div>
-					</div>
+					
 				</section>
 			</div>
 		);
