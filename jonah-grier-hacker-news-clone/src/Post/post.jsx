@@ -28,7 +28,7 @@ class Post extends React.Component {
 		}
 
 		return (
-			<div className="container">
+			<div className="post-container">
 				<select
 					className="form-select form-select-lg mb-3"
 					aria-label=".form-select-lg example"

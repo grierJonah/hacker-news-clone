@@ -1,7 +1,10 @@
-.container {
-	background-color: lightgray;
-}
-
 #or-spacing::after {
 	content: " ";
+}
+
+.post-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0px 30% 20px;
 }

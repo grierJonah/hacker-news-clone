@@ -94,6 +94,15 @@ li {
 	height: 97vh;
 }
 
+.add-post-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	display: inline;
+}
+
 .footer-container {
 	display: inline;
 	position: absolute;

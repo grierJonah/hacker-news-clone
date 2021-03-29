@@ -35,13 +35,11 @@ export default class post_url_form extends React.Component {
 			body: "",
 		};
 
-		console.log(newBlogPost);
-
 		axios
 			.post("http://localhost:4000/add_post", newBlogPost)
 			.then((response) => console.log("Response:", response.data));
 
-		// document.location = "../";
+		document.location = "../";
 		this.setState({
 			title: "",
 			url: "",
