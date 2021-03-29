@@ -7,7 +7,7 @@ export default class post_body_form extends React.Component {
 		super();
 		this.state = {
 			title: "",
-			url_link: "",
+			url: "",
 			body: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
@@ -32,11 +32,11 @@ export default class post_body_form extends React.Component {
 
 		const newBlogPost = {
 			title: this.state.title,
-			url_link: "",
+			url: "",
 			body: this.state.body,
 		};
 
-		console.log(newBlogPost.body);
+		console.log(newBlogPost);
 
 		axios
 			.post("http://localhost:4000/add_post", newBlogPost)
@@ -45,7 +45,7 @@ export default class post_body_form extends React.Component {
 		// document.location = "../";
 		this.setState({
 			title: "",
-			url_link: "",
+			url: "",
 			body: "",
 		});
 	}
@@ -53,22 +53,22 @@ export default class post_body_form extends React.Component {
 	render() {
 		return (
 			<div className="form-group">
-				<label className="col-xs-3 col-form-label mr-2">
-					Post Title:
-				</label>
-				<div className="col-xs-9">
-					<input
-						type="text"
-						placeholder="Enter your Posts title"
-						className="form-control"
-						onChange={this.changeTitle}
-						value={this.state.title}
-						id="Title"
-						name="title"
-						required={true}
-					/>
-				</div>
-				<form id="postBody" onSubmit={this.sendToDatabase.bind(this)}>
+				<form onSubmit={this.sendToDatabase.bind(this)}>
+					<div className="form-group">
+						<label className="col-xs-3 col-form-label mr-2">
+							Post Title:
+						</label>
+						<div className="col-xs-9">
+							<input
+								className="form-control"
+								type="text"
+								placeholder="Posts Title"
+								onChange={this.changeTitle}
+								value={this.state.title}
+								required={true}
+							/>
+						</div>
+					</div>
 					<div className="mb-3">
 						<label htmlFor="postBody" className="form-label">
 							Body:
@@ -80,14 +80,15 @@ export default class post_body_form extends React.Component {
 							onChange={this.changeBody}
 							value={this.state.body}
 							id="postBody"
+							required={true}
 						/>
 					</div>
-					<div className="form-group row">
-						<div className="offset-xs-3 col-xs-9">
-							<button type="submit" className="btn btn-primary">
-								Submit
-							</button>
-						</div>
+					<div className="form-group" id="register-outer-button">
+						<input
+							type="submit"
+							className="btn btn-primary"
+							value="Submit"
+						/>
 					</div>
 				</form>
 			</div>

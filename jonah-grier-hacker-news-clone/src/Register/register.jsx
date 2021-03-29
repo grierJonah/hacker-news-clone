@@ -51,20 +51,23 @@ class Register extends React.Component {
 			<div className="container">
 				<div className="form-group">
 					<form onSubmit={this.sendToDatabase.bind(this)}>
-						<div class="form-group">
-							<label for="username">Username:</label>
+						<div className="form-group">
+							<label htmlFor="username">Username:</label>
 							<input
+								className="form-control form-group"
 								type="text"
 								placeholder="Username"
 								onChange={this.changeUsername}
 								value={this.state.username}
-								className="form-control form-group"
+								required={true}
 							/>
-							<small id="emailHelp" class="form-text text-muted">
+							<small
+								id="emailHelp"
+								className="form-text text-muted">
 								We'll never share your email with anyone else.
 							</small>
 						</div>
-						<div lass="form-group">
+						<div className="form-group">
 							<input
 								type="password"
 								placeholder="Password"
@@ -74,7 +77,7 @@ class Register extends React.Component {
 								className="form-control form-group register"
 							/>
 						</div>
-						<div class="form-group" id="register-outer-button">
+						<div className="form-group" id="register-outer-button">
 							<input
 								type="submit"
 								className="btn btn-primary"

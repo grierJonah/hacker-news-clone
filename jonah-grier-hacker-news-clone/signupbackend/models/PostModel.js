@@ -5,7 +5,7 @@ const postTemplate = new mongoose.Schema({
         type: String,
         required: true
     },
-    url_link: {
+    url: {
         type: String,
         required: false
     },

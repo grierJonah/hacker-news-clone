@@ -23,13 +23,12 @@ router.post('/signup', async (request, response) => {
         })
 })
 
-// Add post to database
+// Add blog post to database
 router.post('/add_post', async (request, response) => {
-    console.log(request.body);
     const newPost = new postTemplateCopy({
         title: request.body.title,
-        url_link: request.body.url_link,
-        body: request.body.url_link
+        url: request.body.url,
+        body: request.body.body
     })
 
     newPost.save()

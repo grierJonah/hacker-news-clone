@@ -7,7 +7,7 @@ export default class post_url_form extends React.Component {
 		super();
 		this.state = {
 			title: "",
-			url_link: "",
+			url: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
 		this.changeURL = this.changeURL.bind(this);
@@ -21,7 +21,7 @@ export default class post_url_form extends React.Component {
 
 	changeURL(event) {
 		this.setState({
-			url_link: event.target.value,
+			url: event.target.value,
 		});
 	}
 
@@ -31,20 +31,20 @@ export default class post_url_form extends React.Component {
 
 		const newBlogPost = {
 			title: this.state.title,
-			url_link: this.state.url_link,
-			body: "----",
+			url: this.state.url,
+			body: "",
 		};
 
 		console.log(newBlogPost);
 
 		axios
 			.post("http://localhost:4000/add_post", newBlogPost)
-			.then((response) => console.log(response.data));
+			.then((response) => console.log("Response:", response.data));
 
 		// document.location = "../";
 		this.setState({
 			title: "",
-			url_link: "",
+			url: "",
 		});
 	}
 
@@ -62,14 +62,16 @@ export default class post_url_form extends React.Component {
 							className="form-control"
 							onChange={this.changeTitle}
 							value={this.state.title}
-							id="Title"
+							id="title"
 							name="title"
 							required={true}
 						/>
 					</div>
 				</div>
 				<div className="form-group">
-					<label for="URL" className="col-xs-3 col-form-label mr-2">
+					<label
+						htmlFor="URL"
+						className="col-xs-3 col-form-label mr-2">
 						URL:
 					</label>
 					<div className="col-xs-9">
@@ -78,9 +80,9 @@ export default class post_url_form extends React.Component {
 							placeholder="Link to article"
 							className="form-control"
 							onChange={this.changeURL}
-							value={this.state.url_link}
-							id="url_link"
-							name="url_link"
+							value={this.state.url}
+							id="url"
+							name="url"
 						/>
 					</div>
 				</div>
