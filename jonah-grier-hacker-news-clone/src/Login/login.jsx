@@ -51,7 +51,7 @@ class Register extends React.Component {
 			<div className="App">
 				<div className="container">
 					<div className="form-group">
-						<form onSubmit={""}>
+						<form onSubmit={this.sendToDatabase.bind(this)}>
 							<div class="form-group">
 								<label for="username">Username:</label>
 								<input

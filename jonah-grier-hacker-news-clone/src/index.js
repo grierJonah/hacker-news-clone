@@ -5,6 +5,7 @@ import './index.css';
 import HomePage from './Homepage/HomePage';
 import Register from './Register/register';
 import Login from './Login/login'
+import Post from './Post/post'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -14,6 +15,7 @@ ReactDOM.render(
         <Route exact path={"/"} component={HomePage} />
         <Route exact path={"/signup"} component={Register} />
         <Route exact path={"/login"} component={Login} />
+        <Route exact path={"/add_post"} component={Post} />
         <Route render={() => <h1>Path not found!</h1>} />
         <HomePage />
       </Switch>
