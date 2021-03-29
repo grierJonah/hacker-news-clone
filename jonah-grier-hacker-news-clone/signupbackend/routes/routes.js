@@ -40,4 +40,16 @@ router.post('/add_post', async (request, response) => {
         })
 })
 
+router.get('/get_posts', (req, res) => {
+    postTemplateCopy.find({})
+        .then(() => {
+            console.log("Data:", data);
+        })
+        .catch((error) => {
+            console.log("Error:", error);
+        })
+})
+
+
+
 module.exports = router
