@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	/* overflow-y: hidden; */
 }
 
 .nav-section {
@@ -91,7 +92,7 @@ li {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	height: 97vh;
+	height: 97vh; /* <------------------------------------------------------- look here later */
 }
 
 .add-post-div {

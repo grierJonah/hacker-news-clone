@@ -15,9 +15,9 @@ export default class HomePage extends React.Component {
 							<li>
 								<b>Hacker News Clone</b>&nbsp;
 							</li>
-							{/* <li className="tags" id="submit-tag">
+							<li className="tags" id="submit-tag">
 								<a href="../add_post">&nbsp;submit</a>
-							</li> */}
+							</li>
 							<li className="tags" id="comments-tag">
 								<a href="/">&nbsp;comments</a>
 							</li>
@@ -41,9 +41,9 @@ export default class HomePage extends React.Component {
 						</ul>
 					</div>
 				</section>
-				<div className="add-post-div">
+				{/* <div className="add-post-div">
 					<Post />
-				</div>
+				</div> */}
 				<section className="main-body-container-section">
 					<div className="main-body-container">
 						<ol>
