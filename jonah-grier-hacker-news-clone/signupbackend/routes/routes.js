@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const signUpTemplateCopy = require('../models/SignUpModels')
 const postTemplateCopy = require('../models/PostModel');
+const postCommentTemplateCopy = require('../models/PostCommentModel');
 const bcrypt = require('bcrypt');
 const { request } = require('express');
 
@@ -40,10 +41,25 @@ router.post('/add_post', async (request, response) => {
         })
 })
 
-router.get('/get_posts', (req, res) => {
+router.post('/add_comment', async(request, response) => {
+    const newComment = new postCommentTemplateCopy({
+        body: request.body.body
+    })
+
+    newComment.save()
+        .then(data => {
+            response.json(data)
+        })
+        .catch(error => {
+            response.json(error)
+        })
+})
+
+router.get('/', (req, res) => {
     postTemplateCopy.find({})
-        .then(() => {
-            console.log("Data:", data);
+        .then((data) => {
+            console.log("Pulled Data:", data);
+            res.send(data)
         })
         .catch((error) => {
             console.log("Error:", error);
