@@ -1,6 +1,5 @@
 import "./HomePage.css";
 import React from "react";
-// import Post from "../Post/post";
 import ListOfPosts from "./Posts/PostList";
 
 export default class HomePage extends React.Component {
@@ -48,7 +47,7 @@ export default class HomePage extends React.Component {
 				<section className="main-body-container-section">
 					<div className="main-body-container">
 						{<ListOfPosts />}
-						<ol>
+						{/* <ol>
 							<li>
 								<p>Here is first post</p>
 							</li>
@@ -67,7 +66,7 @@ export default class HomePage extends React.Component {
 							<li>
 								<p>Here is sixth post</p>
 							</li>
-						</ol>
+						</ol> */}
 					</div>
 				</section>
 			</div>

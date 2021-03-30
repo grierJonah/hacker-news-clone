@@ -16,6 +16,7 @@ ReactDOM.render(
         <Route exact path={"/signup"} component={Register} />
         <Route exact path={"/login"} component={Login} />
         <Route exact path={"/add_post"} component={Post} />
+        {/* <Route exact path={"/add_comment"} component={Post} /> */}
         <Route render={() => <h1>Path not found!</h1>} />
         <HomePage />
       </Switch>

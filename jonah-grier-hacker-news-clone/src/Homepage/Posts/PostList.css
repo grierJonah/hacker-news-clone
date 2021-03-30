@@ -1,0 +1,23 @@
+.db-posts {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.db-post-url {
+	color: red;
+	margin-left: 20px;
+}
+
+.db-post-title {
+	color: black;
+	font-weight: bold;
+	line-height: 1.5;
+	/* margin-left: 100px; */
+}
+
+.db-post-body {
+	/* color: red; */
+	/* margin-left: 100px; */
+}
