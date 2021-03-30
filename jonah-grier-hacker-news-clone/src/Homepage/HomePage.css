@@ -10,6 +10,7 @@
 
 .navigation-bar {
 	display: flex;
+	margin-top: 10px;
 }
 
 .tags a {
@@ -28,7 +29,7 @@
 ul {
 	list-style-type: none;
 	width: 100%;
-	margin: 0;
+	margin: 0px;
 	padding: 0;
 	background-color: rgb(255, 91, 0);
 }
@@ -87,12 +88,14 @@ li {
 
 .main-body-container-section {
 	background-color: rgb(246, 246, 239);
-	border: 1px solid black;
+	/* border: 1px solid black;
+	border-left: none;
+	border-right: none; */
 	margin: -20px 50px;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	height: 97vh; /* <------------------------------------------------------- look here later */
+	height: 96vh; /* <------------------------------------------------------- look here later */
 }
 
 .add-post-div {

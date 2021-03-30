@@ -41,33 +41,8 @@ export default class HomePage extends React.Component {
 						</ul>
 					</div>
 				</section>
-				{/* <div className="add-post-div">
-					<Post />
-				</div> */}
 				<section className="main-body-container-section">
-					<div className="main-body-container">
-						{<ListOfPosts />}
-						{/* <ol>
-							<li>
-								<p>Here is first post</p>
-							</li>
-							<li>
-								<p>Here is second post</p>
-							</li>
-							<li>
-								<p>Here is third post</p>
-							</li>
-							<li>
-								<p>Here is fourth post</p>
-							</li>
-							<li>
-								<p>Here is fifth post</p>
-							</li>
-							<li>
-								<p>Here is sixth post</p>
-							</li>
-						</ol> */}
-					</div>
+					<div className="main-body-container">{<ListOfPosts />}</div>
 				</section>
 			</div>
 		);

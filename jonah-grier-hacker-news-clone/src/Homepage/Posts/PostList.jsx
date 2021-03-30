@@ -14,12 +14,21 @@ class PostList extends React.Component {
 	}
 
 	showPosts() {
-		return this.state.posts.map((post) => {
+		return this.state.posts.map((post, index) => {
 			return (
 				<div className="db-posts">
-					<h6 className="db-post-title">{post.title}</h6>
+					<span className="db-post-index">
+						{index + 1}.<span id="db-post-triangle">▲</span>
+					</span>
+					<h6 className="db-post-title">
+						<a href={post.title}>{post.title}</a>
+					</h6>
 					<span className="db-post-url">
-						<a href={post.url}>({post.url})</a>
+						<small>
+							<a href={post.url} target={post.url}>
+								({post.url})
+							</a>
+						</small>
 					</span>
 				</div>
 			);
@@ -44,12 +53,7 @@ class PostList extends React.Component {
 	}
 
 	render() {
-		return (
-			<div className="list_of_posts">
-				List of Posts:
-				{this.showPosts()}
-			</div>
-		);
+		return <div className="list_of_posts">{this.showPosts()}</div>;
 	}
 }
 

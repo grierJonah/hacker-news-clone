@@ -5,19 +5,31 @@
 	justify-content: flex-start;
 }
 
-.db-post-url {
-	color: red;
+.db-post-url a {
+	color: rgb(143, 143, 143);
 	margin-left: 20px;
 }
 
 .db-post-title {
-	color: black;
 	font-weight: bold;
 	line-height: 1.5;
-	/* margin-left: 100px; */
 }
 
-.db-post-body {
-	/* color: red; */
-	/* margin-left: 100px; */
+.db-post-title a:link,
+a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+.db-post-title a:visited {
+	color: rgb(143, 143, 143);
+}
+
+.db-post-index {
+	font-size: 16px;
+}
+
+#db-post-triangle {
+	margin: 0 5px 0 1px;
+	color: rgb(143, 143, 143);
 }
