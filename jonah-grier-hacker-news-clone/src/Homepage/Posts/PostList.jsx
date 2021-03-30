@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./PostList.css";
 
-const url = "http://localhost:4000";
+const url = "http://localhost:8000";
 
 class PostList extends React.Component {
 	constructor(props) {
@@ -13,10 +13,23 @@ class PostList extends React.Component {
 		};
 	}
 
+	checkLinkExists(url) {
+		if (url.length !== 0) {
+			return (
+				<span className="db-post-url">
+					<a href={url} target={url}>
+						({url})
+					</a>
+				</span>
+			);
+		}
+		return "";
+	}
+
 	showPosts() {
 		return this.state.posts.map((post, index) => {
 			return (
-				<div className="db-posts">
+				<div className="db-posts" key={index}>
 					<span className="db-post-index">
 						{index + 1}.<span id="db-post-triangle">▲</span>
 					</span>
@@ -24,11 +37,7 @@ class PostList extends React.Component {
 						<a href={post.title}>{post.title}</a>
 					</h6>
 					<span className="db-post-url">
-						<small>
-							<a href={post.url} target={post.url}>
-								({post.url})
-							</a>
-						</small>
+						<small>{this.checkLinkExists(post.url)}</small>
 					</span>
 				</div>
 			);

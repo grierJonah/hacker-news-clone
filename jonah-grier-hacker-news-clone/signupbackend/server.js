@@ -15,4 +15,4 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/', routesUrls);
-app.listen(4000, () => console.log("server is up and running"));
+app.listen(8000, () => console.log("server is up and running"));

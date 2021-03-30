@@ -10,6 +10,11 @@
 	margin-left: 20px;
 }
 
+.db-post-url a:hover {
+	text-decoration: none;
+	color: rgb(143, 143, 143);
+}
+
 .db-post-title {
 	font-weight: bold;
 	line-height: 1.5;
