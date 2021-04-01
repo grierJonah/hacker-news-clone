@@ -61,9 +61,7 @@ class Register extends React.Component {
 								value={this.state.username}
 								required={true}
 							/>
-							<small
-								id="emailHelp"
-								className="form-text text-muted">
+							<small id="email-help" className="form-text">
 								We'll never share your email with anyone else.
 							</small>
 						</div>
