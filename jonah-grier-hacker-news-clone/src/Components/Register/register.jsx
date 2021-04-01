@@ -66,6 +66,7 @@ class Register extends React.Component {
 							</small>
 						</div>
 						<div className="form-group">
+							<label htmlFor="password">Password:</label>
 							<input
 								type="password"
 								placeholder="Password"

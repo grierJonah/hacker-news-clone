@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './index.css';
-import HomePage from './Homepage/HomePage';
-import Register from './Register/register';
-import Login from './Login/login'
-import Post from './Post/post'
+import HomePage from './Components/Homepage/HomePage'
+import Register from './Components/Register/register';
+import Authentication from './Components/Authentication/Authentication'
+import Login from './Components/Login/login'
+import Post from './Components/Post/post'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -13,7 +14,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path={"/"} component={HomePage} />
-        <Route exact path={"/signup"} component={Register} />
+        <Route exact path={"/signup"} component={Authentication} />
         <Route exact path={"/login"} component={Login} />
         <Route exact path={"/add_post"} component={Post} />
         {/* <Route exact path={"/add_comment"} component={Post} /> */}
