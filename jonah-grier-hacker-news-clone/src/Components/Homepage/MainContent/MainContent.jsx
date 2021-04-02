@@ -1,6 +1,6 @@
 import React from "react";
 import "./MainContent.css";
-import ListOfPosts from "../Posts/PostList";
+import ListOfPosts from "./posts/PostList";
 
 export default class MainContent extends React.Component {
 	render() {

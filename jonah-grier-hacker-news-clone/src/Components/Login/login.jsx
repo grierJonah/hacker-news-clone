@@ -1,6 +1,5 @@
 import "./login.css";
 import React from "react";
-import "../post/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
 class Register extends React.Component {
