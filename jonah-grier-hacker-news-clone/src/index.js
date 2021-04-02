@@ -7,10 +7,10 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 // import Authentication from './components/Authentication/Authentication'
 
 import './index.css';
-import HomePage from './components/Homepage/HomePage'
-import Register from './components/Register/register'
-import Login from './components/Login/login'
-import Post from './components/Post/post'
+import HomePage from './components/homepage/HomePage'
+import Register from './components/register/register'
+import Login from './components/login/login'
+import Post from './components/post/post'
 import reportWebVitals from './reportWebVitals';
 
 const store = createStore(reducer);

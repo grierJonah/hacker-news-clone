@@ -50,8 +50,9 @@ class PostList extends React.Component {
 
 	getPosts() {
 		axios
-			.get(url + "/")
+			.get(url + "/posts")
 			.then((response) => {
+				console.log(response.data[0]._id);
 				const data = response.data;
 				this.setState({ posts: data });
 				console.log("Data has been received");

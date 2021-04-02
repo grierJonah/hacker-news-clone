@@ -11,8 +11,9 @@ router.post('/signup', async (request, response) => {
     const securePassword = await bcrypt.hash(request.body.password, addSalt);
 
     const signedUpUser = new signUpTemplateCopy({
-        username:request.body.username,
-        password:securePassword,
+        email: request.body.email,
+        username: request.body.username,
+        password: securePassword,
     })
     signedUpUser.save()
         .then(data => {
@@ -54,7 +55,7 @@ router.post('/add_comment', async(request, response) => {
         })
 })
 
-router.get('/', (req, res) => {
+router.get('/posts', (req, res) => {
     postTemplateCopy.find({})
         .then((data) => {
             console.log("Pulled Data:", data);
@@ -65,6 +66,27 @@ router.get('/', (req, res) => {
         })
 })
 
+router.get('/users', async(req, res) => {
+    signUpTemplateCopy.find({})
+        .then((data) => {
+            console.log("Pulled Users:", data);
+            res.send(data)
+        })
+        .catch((error) => {
+            console.log("Error:", error);
+        })
+})
+
+router.get('/users/:username', async(req, res) => {
+    signUpTemplateCopy.findOne(res.params)
+    .then((data) => {
+        console.log("Found User:", data);
+        res.send(data);
+    })
+    .catch((error) => {
+        console.log("Error", error);
+    })
+})
 
 
 module.exports = router

@@ -2,7 +2,7 @@ import "./post.css";
 import PostUrlForm from "./url_form/post_url_form";
 import PostBodyForm from "./body_form/post_body_form";
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../login/node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 class Post extends React.Component {
 	constructor() {

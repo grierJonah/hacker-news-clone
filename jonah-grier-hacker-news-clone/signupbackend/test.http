@@ -2,6 +2,7 @@ POST http://localhost:4000/signup
 Content-Type: application/json
 
 {
-    "username":"jonah",
-    "password":"newpassword020"
+    "email": "rando@yahoo.org",
+    "username":"ben",
+    "password":"random"
 }

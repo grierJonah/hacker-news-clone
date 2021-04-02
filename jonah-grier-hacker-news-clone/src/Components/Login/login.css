@@ -21,4 +21,6 @@
 
 #register-outer-button {
 	display: flex;
+	flex-direction: row;
+	width: 100%;
 }

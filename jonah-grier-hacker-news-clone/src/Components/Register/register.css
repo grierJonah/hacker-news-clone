@@ -8,14 +8,15 @@
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
-	background-image: url("../../images/external.jpg");
-	background-position: 50%;
+	/* background-image: url("../../images/external.jpg");
+	background-position: 50%; */
 }
 
 .form-group {
 	align-items: center;
 	justify-content: center;
-	color: palevioletred;
+	/* color: palevioletred; */
+	color: black;
 }
 
 #register-outer-button {
@@ -24,8 +25,8 @@
 	border: none;
 }
 
-#email-help {
+/* #email-help {
 	color: pink;
 	font-weight: bold;
 	margin-bottom: 50px;
-}
+} */

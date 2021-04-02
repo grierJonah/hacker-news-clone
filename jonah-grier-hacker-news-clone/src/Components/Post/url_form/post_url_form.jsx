@@ -1,5 +1,5 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../../login/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
 export default class post_url_form extends React.Component {
