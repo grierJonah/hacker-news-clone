@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./PostList.css";
 
-const url = "http://localhost:4000";
+const url = "http://localhost:4000/api";
 
 class PostList extends React.Component {
 	constructor(props) {
@@ -52,10 +52,8 @@ class PostList extends React.Component {
 		axios
 			.get(url + "/posts")
 			.then((response) => {
-				console.log(response.data[0]._id);
 				const data = response.data;
 				this.setState({ posts: data });
-				console.log("Data has been received");
 			})
 			.catch(() => {
 				console.log("Error retrieving data!");

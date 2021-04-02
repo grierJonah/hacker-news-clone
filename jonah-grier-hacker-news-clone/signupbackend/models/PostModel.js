@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const user = require('./SignUpModels');
 
 const postTemplate = new mongoose.Schema({
     title: {

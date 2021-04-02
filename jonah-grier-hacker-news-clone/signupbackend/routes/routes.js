@@ -24,6 +24,10 @@ router.post('/signup', async (request, response) => {
         })
 })
 
+router.get('/login', async(request, response) => {
+    console.log(request.body.username);
+})
+
 // Add blog post to database
 router.post('/add_post', async (request, response) => {
     const newPost = new postTemplateCopy({
@@ -66,6 +70,31 @@ router.get('/posts', (req, res) => {
         })
 })
 
+router.get('/posts/:title', (req, res) => {
+    console.log(req.params);
+    postTemplateCopy.findOne(req.params)
+        .then((data) => {
+            console.log("Found Post:", data);
+            res.send(data)
+        })
+        .catch((error) => {
+            console.log("Error:", error);
+        })
+})
+
+router.get('/posts/:username', (req, res) => {
+    console.log(req.params);
+    postTemplateCopy.findOne(req.params)
+        .then((data) => {
+            console.log("Found Post:", data);
+            res.send(data)
+        })
+        .catch((error) => {
+            console.log("Error:", error);
+        })
+})
+
+
 router.get('/users', async(req, res) => {
     signUpTemplateCopy.find({})
         .then((data) => {
@@ -77,8 +106,8 @@ router.get('/users', async(req, res) => {
         })
 })
 
-router.get('/users/:username', async(req, res) => {
-    signUpTemplateCopy.findOne(res.params)
+router.get('/users/:username', async(req, res) => {    
+    signUpTemplateCopy.findOne(req.params)
     .then((data) => {
         console.log("Found User:", data);
         res.send(data);
@@ -87,6 +116,7 @@ router.get('/users/:username', async(req, res) => {
         console.log("Error", error);
     })
 })
+
 
 
 module.exports = router

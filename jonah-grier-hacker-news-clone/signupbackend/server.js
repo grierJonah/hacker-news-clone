@@ -14,5 +14,5 @@ app.set('port', process.env.PORT || 8000);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/', routesUrls);
+app.use('/api', routesUrls);
 app.listen(4000, () => console.log("server is up and running"));
