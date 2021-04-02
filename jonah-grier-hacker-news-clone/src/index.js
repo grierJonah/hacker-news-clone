@@ -1,20 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from "redux"
+import reducer from './reducers/reducer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+// import Authentication from './components/Authentication/Authentication'
+
 import './index.css';
-import HomePage from './Components/Homepage/HomePage'
-import Register from './Components/Register/register';
-import Authentication from './Components/Authentication/Authentication'
-import Login from './Components/Login/login'
-import Post from './Components/Post/post'
+import HomePage from './components/Homepage/HomePage'
+import Register from './components/Register/register'
+import Login from './components/Login/login'
+import Post from './components/Post/post'
 import reportWebVitals from './reportWebVitals';
+
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <Router>
       <Switch>
         <Route exact path={"/"} component={HomePage} />
-        <Route exact path={"/signup"} component={Authentication} />
+        <Route exact path={"/signup"} component={Register} />
         <Route exact path={"/login"} component={Login} />
         <Route exact path={"/add_post"} component={Post} />
         {/* <Route exact path={"/add_comment"} component={Post} /> */}
@@ -23,11 +30,7 @@ ReactDOM.render(
         <HomePage />
       </Switch>
     </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
