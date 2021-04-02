@@ -7,11 +7,19 @@ class Register extends React.Component {
 	constructor() {
 		super();
 		this.state = {
+			email: "",
 			username: "",
 			password: "",
 		};
+		this.changeEmail = this.changeEmail.bind(this);
 		this.changeUsername = this.changeUsername.bind(this);
 		this.changePassword = this.changePassword.bind(this);
+	}
+
+	changeEmail(event) {
+		this.setState({
+			email: event.target.value,
+		});
 	}
 
 	changeUsername(event) {
@@ -31,6 +39,7 @@ class Register extends React.Component {
 		event.preventDefault();
 
 		const newRegisteredUser = {
+			email: this.state.email,
 			username: this.state.username,
 			password: this.state.password,
 		};
@@ -41,6 +50,7 @@ class Register extends React.Component {
 
 		document.location = "../";
 		this.setState({
+			email: "",
 			username: "",
 			password: "",
 		});
@@ -52,6 +62,22 @@ class Register extends React.Component {
 				<div className="form-group">
 					<form onSubmit={this.sendToDatabase.bind(this)}>
 						<div className="form-group">
+							<label htmlFor="username">Email:</label>
+							<input
+								className="form-control form-group"
+								type="text"
+								placeholder="Email"
+								onChange={this.changeEmail}
+								value={this.state.email}
+								required={true}
+							/>
+							<small
+								id="email-help"
+								className="form-text text-muted">
+								We'll never share your email with anyone else.
+							</small>
+						</div>
+						<div className="form-group">
 							<label htmlFor="username">Username:</label>
 							<input
 								className="form-control form-group"
@@ -61,9 +87,6 @@ class Register extends React.Component {
 								value={this.state.username}
 								required={true}
 							/>
-							<small id="email-help" className="form-text">
-								We'll never share your email with anyone else.
-							</small>
 						</div>
 						<div className="form-group">
 							<label htmlFor="password">Password:</label>
