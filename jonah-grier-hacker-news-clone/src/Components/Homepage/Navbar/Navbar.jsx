@@ -6,7 +6,7 @@ import LoggedOutNav from "./user_verified/logged_out_nav";
 
 class Navbar extends React.Component {
 	render() {
-		console.log(this.props.state_is_verified);
+		console.log(this.props.state_is_verified.loggedIn);
 		return (
 			<section className="nav-section">
 				<div className="navigation-bar">
@@ -17,7 +17,7 @@ class Navbar extends React.Component {
 						<li>
 							<b>Hacker News Clone</b>&nbsp;
 						</li>
-						{this.props.state_is_verified ? (
+						{this.props.state_is_verified.loggedIn ? (
 							<LoggedInNav />
 						) : (
 							<LoggedOutNav />
