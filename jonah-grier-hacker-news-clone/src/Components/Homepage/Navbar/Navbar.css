@@ -7,6 +7,10 @@
 	margin-top: 10px;
 }
 
+.inner-nav-list {
+	display: inline;
+}
+
 .tags a {
 	list-style-type: none;
 	color: black;
@@ -16,6 +20,7 @@
 }
 
 #jobs-tag::after,
+#profile-tag::after,
 #user-login::after {
 	content: "";
 }
@@ -36,7 +41,8 @@ li {
 	float: right;
 }
 
-#user-register {
+#user-register,
+#profile-tag {
 	float: right;
 	margin-right: 5px;
 }

@@ -1,8 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import "./Navbar.css";
+import LoggedInNav from "./user_verified/logged_in_nav";
+import LoggedOutNav from "./user_verified/logged_out_nav";
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
 	render() {
+		console.log(this.props.state_is_verified);
 		return (
 			<section className="nav-section">
 				<div className="navigation-bar">
@@ -13,32 +17,28 @@ export default class Navbar extends React.Component {
 						<li>
 							<b>Hacker News Clone</b>&nbsp;
 						</li>
-						<li className="tags" id="submit-tag">
-							<a href="../add_post">&nbsp;submit</a>
-						</li>
-						<li className="tags" id="comments-tag">
-							<a href="/">&nbsp;comments</a>
-						</li>
-						<li className="tags" id="ask-tag">
-							<a href="/">&nbsp;ask</a>
-						</li>
-						<li className="tags" id="show-tag">
-							<a href="/">&nbsp;show</a>
-						</li>
-						<li className="tags" id="jobs-tag">
-							<a href="/">&nbsp;jobs</a>
-						</li>
-
-						<li className="tags" id="user-login">
-							<a href="../login/">login</a>
-						</li>
-						<li className="tags" id="user-register">
-							&nbsp;
-							<a href="../signup/">register</a>
-						</li>
+						{this.props.state_is_verified ? (
+							<LoggedInNav />
+						) : (
+							<LoggedOutNav />
+						)}
 					</ul>
 				</div>
 			</section>
 		);
 	}
 }
+
+let mapDispatchToProps = function (dispatch, props) {
+	return {
+		dispatch: dispatch,
+	};
+};
+
+let mapStateToProps = function (state, props) {
+	return {
+		state_is_verified: state.verified,
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
