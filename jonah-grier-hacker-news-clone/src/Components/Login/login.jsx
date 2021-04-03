@@ -1,4 +1,5 @@
 import "./login.css";
+import { connect } from "react-redux";
 import React from "react";
 import axios from "axios";
 
@@ -25,6 +26,15 @@ class Register extends React.Component {
 		});
 	}
 
+	authenticateUser(action, name, pass, db_user) {
+		this.props.dispatch({
+			type: action,
+			username: name,
+			password: pass,
+			auth: db_user,
+		});
+	}
+
 	getFromDatabase(event) {
 		event.preventDefault();
 
@@ -33,9 +43,25 @@ class Register extends React.Component {
 			password: this.state.password,
 		};
 
+		console.log("User Logging in:", loginUser);
+
 		axios
-			.get("http://localhost:4000/user/:username", loginUser.username)
-			.then((response) => console.log(response));
+			.get("http://localhost:4000/api/users/" + loginUser.username)
+			.then((response) => {
+				console.log("Response:", response.data);
+				this.authenticateUser(
+					"LOG_IN",
+					loginUser.username,
+					loginUser.password,
+					response.data
+				);
+				if (this.props.state_is_verified.loggedIn) {
+					let acct = this.state.username;
+					console.log(`Account: ${acct} successfully logged in`);
+					// document.location = this.props.state_is_verified.redirect;
+				}
+			})
+			.catch((error) => console.log(error));
 	}
 
 	render() {
@@ -83,4 +109,16 @@ class Register extends React.Component {
 	}
 }
 
-export default Register;
+let mapDispatchToProps = function (dispatch, props) {
+	return {
+		dispatch: dispatch,
+	};
+};
+
+let mapStateToProps = function (state, props) {
+	return {
+		state_is_verified: state.verified,
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

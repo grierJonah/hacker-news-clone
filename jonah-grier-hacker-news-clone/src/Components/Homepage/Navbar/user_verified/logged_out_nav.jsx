@@ -21,7 +21,7 @@ export default class logged_out_nav extends React.Component {
 					<a href="/">&nbsp;jobs</a>
 				</li>
 				<li className="tags" id="user-login">
-					<a href="../login/">login</a>
+					<a href="../auth/">login</a>
 				</li>
 				<li className="tags" id="user-register">
 					&nbsp;

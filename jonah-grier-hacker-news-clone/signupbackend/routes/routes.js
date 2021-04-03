@@ -24,8 +24,16 @@ router.post('/signup', async (request, response) => {
         })
 })
 
-router.get('/login', async(request, response) => {
-    console.log(request.body.username);
+router.post('/auth', function(req, res) {
+    console.dir(req.body);
+    signUpTemplateCopy.findOne({username: req.body.username})
+        .then((user) => {
+            if (user.password === req.body.password) {
+                res.status(200).send(user);
+            } else {
+                res.status(404).send('Failed to authenticate user');
+            }
+        })
 })
 
 // Add blog post to database
@@ -106,7 +114,8 @@ router.get('/users', async(req, res) => {
         })
 })
 
-router.get('/users/:username', async(req, res) => {    
+router.get('/users/:username', async(req, res) => { 
+    console.log(req.params);   
     signUpTemplateCopy.findOne(req.params)
     .then((data) => {
         console.log("Found User:", data);

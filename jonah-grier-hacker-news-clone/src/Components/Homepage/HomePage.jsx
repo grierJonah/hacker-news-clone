@@ -1,7 +1,7 @@
 import "./HomePage.css";
 import React from "react";
 import Navbar from "./navbar/Navbar";
-import MainContent from "./maincontent/MainContent";
+import Body from "./body/MainContent";
 import { connect } from "react-redux";
 
 class HomePage extends React.Component {
@@ -9,7 +9,7 @@ class HomePage extends React.Component {
 		return (
 			<div className="main-container">
 				<Navbar loggedOn={this.props.state_is_verified} />
-				<MainContent loggedOn={this.props.state_is_verified} />
+				<Body loggedOn={this.props.state_is_verified} />
 			</div>
 		);
 	}

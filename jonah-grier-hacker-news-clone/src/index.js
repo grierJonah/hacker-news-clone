@@ -22,7 +22,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path={"/"} component={HomePage} />
         <Route exact path={"/signup"} component={Register} />
-        <Route exact path={"/login"} component={Login} />
+        <Route exact path={"/auth"} component={Login} />
         <Route exact path={"/add_post"} component={Post} />
         {/* <Route exact path={"/user_profile"} component={UserProfile} /> */}
         <Route render={() => <h1>Path not found!</h1>} />

@@ -45,7 +45,7 @@ class Register extends React.Component {
 		};
 
 		axios
-			.post("http://localhost:4000/signup", newRegisteredUser)
+			.post("http://localhost:4000/api/signup", newRegisteredUser)
 			.then((response) => console.log(response.data));
 
 		document.location = "../";
