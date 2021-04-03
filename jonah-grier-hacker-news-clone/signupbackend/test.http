@@ -1,8 +1,7 @@
-POST http://localhost:4000/signup
+POST http://localhost:4000/api/authenticate/:username
 Content-Type: application/json
 
 {
-    "email": "rando@yahoo.org",
-    "username":"ben",
-    "password":"random"
+    "username":"test1",
+    "password":"12345678"
 }

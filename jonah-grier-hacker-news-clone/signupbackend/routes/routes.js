@@ -24,10 +24,13 @@ router.post('/signup', async (request, response) => {
         })
 })
 
-router.post('/auth', function(req, res) {
+router.post('/authenticate', function(req, res) {
     console.dir(req.body);
     signUpTemplateCopy.findOne({username: req.body.username})
-        .then((user) => {
+    // + loginUser.username
+    console.log("Here:",req)
+    .then((user) => {
+            console.log("SERVER SIDe", user);
             if (user.password === req.body.password) {
                 res.status(200).send(user);
             } else {
