@@ -39,7 +39,6 @@ class Register extends React.Component {
 
 	getFromDatabase(event) {
 		event.preventDefault();
-
 		const loginUser = {
 			username: this.state.username,
 			password: this.state.password,
@@ -47,43 +46,14 @@ class Register extends React.Component {
 
 		console.log("User Logging in:", loginUser);
 
-		const res = axios
-			.post("http://localhost:4000/api/users/" + loginUser.username)
-			.then((res) => console.log(res))
+		axios
+			.post("http://localhost:4000/users/authenticate", loginUser)
+			.then((res) => {
+				console.log("Cookie Token:", res.data.token);
+				let cookie = res.data.username + "=" + res.data.token;
+				document.cookie = cookie;
+			})
 			.catch((error) => console.log(error));
-
-		// axios
-		// .post("http://localhost:4000/api/users/" + loginUser.username)
-		// .then((response) => {
-		// 	console.log("Response:", response.data);
-		// this.authenticateUser(
-		// 	"LOG_IN",
-		// 	loginUser.username,
-		// 	loginUser.password,
-		// 	response.data
-		// );
-		// if (this.props.state_is_verified.loggedIn) {
-		// let acct = this.state.username;
-		// console.log(`Account: ${acct} successfully logged in`);
-
-		// const payload = { username: loginUser.username };
-		// const token = jwt.sign(
-		// 	payload.username,
-		// 	process.env.SUPER_SECRET,
-		// 	{
-		// 		expiresIn: "1d",
-		// 	}
-		// );
-
-		// console.log("Super Secret:?", process.env.SUPER_SECRET);
-		// return response
-		// 	.cookie("token", token, { httpOnly: true })
-		// 	.status(200)
-		// 	.send(payload.username);
-
-		// document.location = this.props.state_is_verified.redirect;
-		// })
-		// .catch((error) => console.log(error));
 	}
 
 	render() {
@@ -103,7 +73,7 @@ class Register extends React.Component {
 							/>
 						</div>
 						<div className="form-group row">
-							<label htmlFor="username">Password:</label>
+							<label htmlFor="password">Password:</label>
 							<input
 								type="password"
 								placeholder="Password"

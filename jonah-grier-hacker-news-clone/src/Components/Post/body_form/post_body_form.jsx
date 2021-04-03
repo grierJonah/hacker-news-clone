@@ -8,6 +8,7 @@ export default class post_body_form extends React.Component {
 			title: "",
 			url: "",
 			body: "",
+			username: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
 		this.changeBody = this.changeBody.bind(this);
@@ -36,7 +37,7 @@ export default class post_body_form extends React.Component {
 		};
 
 		axios
-			.post("http://localhost:4000/add_post", newBlogPost)
+			.post("http://localhost:4000/posts/add_blog_post", newBlogPost)
 			.then((response) => console.log(response.data));
 
 		document.location = "../";
