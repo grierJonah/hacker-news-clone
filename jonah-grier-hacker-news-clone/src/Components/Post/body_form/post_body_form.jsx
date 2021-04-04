@@ -9,6 +9,7 @@ export default class post_body_form extends React.Component {
 			url: "",
 			body: "",
 			username: "",
+			// token: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
 		this.changeBody = this.changeBody.bind(this);
@@ -26,13 +27,22 @@ export default class post_body_form extends React.Component {
 		});
 	}
 
+	// changeToken(event) {
+	// 	this.setState({
+	// 		token: event.target.value,
+	// 	});
+	// }
+
 	sendToDatabase(event) {
 		event.preventDefault();
+
+		// this.changeToken(document.);
 
 		const newBlogPost = {
 			title: this.state.title,
 			url: "",
 			body: this.state.body,
+			// token: this.state.token,
 		};
 
 		axios
@@ -44,6 +54,7 @@ export default class post_body_form extends React.Component {
 			title: "",
 			url: "",
 			body: "",
+			// token: "",
 		});
 	}
 

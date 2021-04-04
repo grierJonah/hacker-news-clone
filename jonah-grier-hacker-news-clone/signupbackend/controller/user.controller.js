@@ -3,7 +3,6 @@ const router = express.Router();
 const UserModel = require('../model/user.model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const authParser = require('../middleware/middleware_auth.middleware');
 
 router.post('/signup', (req, res) => {
     console.log(req.body);
@@ -25,7 +24,7 @@ router.post('/authenticate', function (req, res) {
             if (bcrypt.compareSync(password, user.password)) {
                 const payload = username;
                 const token = jwt.sign({username: payload}, process.env.SECRET, {
-                    expiresIn: '30s',
+                    expiresIn: '1h',
                 })
                 return res.cookie('token', token, {httpOnly: true})
                     .send({token});

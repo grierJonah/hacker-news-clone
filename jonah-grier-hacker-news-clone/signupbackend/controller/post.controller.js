@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const PostModel = require('../model/post.model');
+const authParser = require('../middleware/middleware_auth.middleware');
 
 
-router.post('/add_blog_post', (req, res) => {
+
+router.post('/add_blog_post', authParser, (req, res) => {
     if(!req.body.title || !req.body.body) {
         return res.status(404).send({message: "Post must contain a title and body!"});
     }
@@ -12,7 +14,7 @@ router.post('/add_blog_post', (req, res) => {
         .catch((error) => res.send(500).send(error));
 });
 
-router.post('/add_url_post', (req, res) => {
+router.post('/add_url_post', authParser, (req, res) => {
     if(!req.body.title || !req.body.url) {
         return res.status(404).send({message: "Post must contain a title and url!"});
     }
