@@ -8,7 +8,7 @@ export default class post_body_form extends React.Component {
 			title: "",
 			url: "",
 			body: "",
-			username: "",
+			// username: "",
 			// token: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
