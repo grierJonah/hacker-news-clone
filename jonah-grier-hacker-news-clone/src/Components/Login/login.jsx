@@ -50,8 +50,9 @@ class Register extends React.Component {
 			.post("http://localhost:4000/users/authenticate", loginUser)
 			.then((res) => {
 				console.log("Cookie Token:", res.data.token);
-				let cookie = res.data.username + "=" + res.data.token;
+				let cookie = "token=" + res.data.token;
 				document.cookie = cookie;
+				document.location = "../";
 			})
 			.catch((error) => console.log(error));
 	}

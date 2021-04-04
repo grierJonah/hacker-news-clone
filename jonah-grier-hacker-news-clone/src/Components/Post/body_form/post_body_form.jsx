@@ -27,7 +27,6 @@ export default class post_body_form extends React.Component {
 	}
 
 	sendToDatabase(event) {
-		// Prevents the form to act in a default way --> don't want whole page to refresh, we want redirection
 		event.preventDefault();
 
 		const newBlogPost = {
@@ -87,6 +86,9 @@ export default class post_body_form extends React.Component {
 							className="btn btn-primary"
 							value="Submit"
 						/>
+					</div>
+					<div id="back-button">
+						<a href="../">Cancel</a>
 					</div>
 				</form>
 			</div>

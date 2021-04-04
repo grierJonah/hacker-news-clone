@@ -25,10 +25,10 @@ router.post('/authenticate', function (req, res) {
             if (bcrypt.compareSync(password, user.password)) {
                 const payload = username;
                 const token = jwt.sign({username: payload}, process.env.SECRET, {
-                    expiresIn: '1d',
+                    expiresIn: '30s',
                 })
                 return res.cookie('token', token, {httpOnly: true})
-                    .send({username, token});
+                    .send({token});
             } else {
                 return res.status(404).send('Failed to authenticate user!');
             }

@@ -8,14 +8,11 @@
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
-	/* background-image: url("../../images/external.jpg");
-	background-position: 50%; */
 }
 
 .form-group {
 	align-items: center;
 	justify-content: center;
-	/* color: palevioletred; */
 	color: black;
 }
 
@@ -29,7 +26,6 @@
 #back-button {
 	display: flex;
 	float: right;
-	/* margin-top: 1px; */
 	border: 1px solid rgb(0, 112, 255);
 	border-radius: 6.9%;
 	padding: 6px 12px;

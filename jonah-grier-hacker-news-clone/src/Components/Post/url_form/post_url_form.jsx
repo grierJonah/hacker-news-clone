@@ -84,11 +84,17 @@ export default class post_url_form extends React.Component {
 					</div>
 				</div>
 				<form onSubmit={this.sendToDatabase.bind(this)}>
-					<div className="form-group row">
-						<div className="offset-xs-3 col-xs-9">
-							<button type="submit" className="btn btn-primary">
+					<div className="form-group">
+						<div>
+							<button
+								type="submit"
+								className="btn btn-primary"
+								id="post-url-submit">
 								Submit
 							</button>
+							<div id="post-back-button">
+								<a href="../">Cancel</a>
+							</div>
 						</div>
 					</div>
 				</form>
