@@ -18,7 +18,8 @@ router.post('/signup', (req, res) => {
 });
 
 router.post('/authenticate', function (req, res) {
-    const {username, password} = req.body;
+    console.log(req);
+    const {username, password} = req.query;
     UserModel.getUserByUserName(username)
         .then((user) => {
             if (bcrypt.compareSync(password, user.password)) {

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = function(req, res, next) {
-    console.log(req);
+    // console.log(req);
     const token = req.cookies.token;
     // Get the token out of the cookie and request.  This is made easy to ready by cookie-parser
     if (!token) {
