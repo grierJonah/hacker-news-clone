@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = function(req, res, next) {
-    // console.log(req);
     const token = req.cookies.token;
     // Get the token out of the cookie and request.  This is made easy to ready by cookie-parser
     if (!token) {
@@ -10,8 +9,12 @@ module.exports = function(req, res, next) {
         res.status(401).send('Unauthorized: No token provided');
     } else {
         // Check that the token is valid and not expired
+
         jwt.verify(token, process.env.SECRET, function(err, decoded) {
             // If it's not a good token, send an exception!
+            console.log("error:",err);
+            console.log("decoded:",decoded);
+
             if (err) {
                 res.status(401).send('Unauthorized: Invalid token');
             } else {

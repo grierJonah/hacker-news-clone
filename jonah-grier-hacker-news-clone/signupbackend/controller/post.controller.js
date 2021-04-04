@@ -5,7 +5,7 @@ const authParser = require('../middleware/middleware_auth.middleware');
 
 
 
-router.post('/add_blog_post', (req, res) => {
+router.post('/add_blog_post', authParser, (req, res) => {
     console.log("Adding blog:",req.body);
     if(!req.body.title || !req.body.body) {
         return res.status(404).send({message: "Post must contain a title and body!"});
