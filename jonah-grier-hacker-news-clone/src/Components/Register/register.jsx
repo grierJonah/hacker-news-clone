@@ -99,12 +99,15 @@ class Register extends React.Component {
 								className="form-control form-group register"
 							/>
 						</div>
-						<div className="form-group" id="register-outer-button">
+						<div className="form-group" id="register-button">
 							<input
 								type="submit"
 								className="btn btn-primary"
 								value="Register"
 							/>
+						</div>
+						<div id="back-button">
+							<a href="../">Cancel</a>
 						</div>
 					</form>
 				</div>

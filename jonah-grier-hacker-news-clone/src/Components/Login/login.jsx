@@ -94,6 +94,9 @@ class Register extends React.Component {
 								value="Login"
 							/>
 						</div>
+						<div id="login-back-button">
+							<a href="../">Cancel</a>
+						</div>
 					</form>
 				</div>
 			</div>
