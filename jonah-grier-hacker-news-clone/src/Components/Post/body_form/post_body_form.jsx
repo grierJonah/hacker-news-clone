@@ -6,10 +6,8 @@ export default class post_body_form extends React.Component {
 		super();
 		this.state = {
 			title: "",
-			url: "",
 			body: "",
 			username: "",
-			// token: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
 		this.changeBody = this.changeBody.bind(this);
@@ -41,22 +39,17 @@ export default class post_body_form extends React.Component {
 			axios
 				.post("http://localhost:4000/posts/add_blog_post", newBlogPost)
 				.then((response) => {
-					// console.log("Axious then-->", response);
-					// if (response.status === 401) {
-					// 	console.log("damnit");
-					// }
 					console.log(response);
 				});
 
 			document.location = "../";
 			this.setState({
 				title: "",
-				url: "",
 				body: "",
 				username: "",
 			});
 		} else {
-			console.log("You need to be logged in to do this");
+			document.location = "../authenticate";
 		}
 	}
 

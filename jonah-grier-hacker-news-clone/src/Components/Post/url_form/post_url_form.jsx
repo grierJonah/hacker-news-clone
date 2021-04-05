@@ -7,6 +7,7 @@ export default class post_url_form extends React.Component {
 		this.state = {
 			title: "",
 			url: "",
+			username: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
 		this.changeURL = this.changeURL.bind(this);
@@ -28,21 +29,27 @@ export default class post_url_form extends React.Component {
 		// Prevents the form to act in a default way --> don't want whole page to refresh, we want redirection
 		event.preventDefault();
 
-		const newBlogPost = {
-			title: this.state.title,
-			url: this.state.url,
-			body: "",
-		};
+		if (sessionStorage.getItem("cookie")) {
+			const newBlogPost = {
+				title: this.state.title,
+				url: this.state.url,
+				body: "",
+				username: sessionStorage.getItem("username"),
+			};
 
-		axios
-			.post("http://localhost:4000/posts/add_url_post", newBlogPost)
-			.then((response) => console.log("Response:", response.data));
+			axios
+				.post("http://localhost:4000/posts/add_url_post", newBlogPost)
+				.then((response) => console.log("Response:", response.data));
 
-		document.location = "../";
-		this.setState({
-			title: "",
-			url: "",
-		});
+			document.location = "../";
+			this.setState({
+				title: "",
+				url: "",
+				username: "",
+			});
+		} else {
+			document.location = "../authenticate";
+		}
 	}
 
 	render() {
@@ -80,6 +87,7 @@ export default class post_url_form extends React.Component {
 							value={this.state.url}
 							id="url"
 							name="url"
+							required={true}
 						/>
 					</div>
 				</div>

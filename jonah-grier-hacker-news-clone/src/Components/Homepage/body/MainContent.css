@@ -9,7 +9,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	height: 96vh; /* <------------------------------------------------------- look here later */
+	min-height: 100vh; /* <------------------------------------------------------- look here later */
 }
 
 .add-post-div {

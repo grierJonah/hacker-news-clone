@@ -49,5 +49,9 @@ a:hover {
 }
 
 #ul-post {
-	background-color: none;
+	font-size: x-small;
+}
+
+#ul-post-username {
+	margin-right: 10px;
 }

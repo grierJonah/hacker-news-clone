@@ -15,7 +15,7 @@ router.post('/add_blog_post', (req, res) => {
         (error) => res.status(500).send(error);
 });
 
-router.post('/add_url_post', authParser, (req, res) => {
+router.post('/add_url_post', (req, res) => {
     console.log("Adding url:",req.body);
     if(!req.body.title || !req.body.url) {
         return res.status(404).send({message: "Post must contain a title and url!"});
