@@ -6,10 +6,11 @@ import { connect } from "react-redux";
 
 class HomePage extends React.Component {
 	render() {
+		const cookie = sessionStorage.getItem("cookie");
 		return (
 			<div className="main-container">
-				<Navbar loggedOn={this.props.state_is_verified} />
-				<Body loggedOn={this.props.state_is_verified} />
+				<Navbar loggedOn={cookie} />
+				<Body loggedOn={cookie} />
 			</div>
 		);
 	}

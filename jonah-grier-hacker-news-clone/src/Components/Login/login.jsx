@@ -5,7 +5,7 @@ import axios from "axios";
 
 const jwt = require("jsonwebtoken");
 
-class Register extends React.Component {
+class Login extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -37,6 +37,16 @@ class Register extends React.Component {
 		});
 	}
 
+	setSessionStorage(token, user) {
+		sessionStorage.setItem("cookie", token);
+		sessionStorage.setItem("username", user.username);
+		sessionStorage.setItem("password", user.password);
+	}
+
+	setCookieToState(action, user, cookie) {
+		this.props.dispatch({ type: action, setUser: user, setCookie: cookie });
+	}
+
 	getFromDatabase(event) {
 		event.preventDefault();
 		const loginUser = {
@@ -49,8 +59,9 @@ class Register extends React.Component {
 		axios
 			.post("http://localhost:4000/users/authenticate", loginUser)
 			.then((res) => {
-				console.log("Cookie Token:", res.data.token);
 				let cookie = "token=" + res.data.token;
+				this.setSessionStorage(res.data.token, loginUser);
+				this.setCookieToState("SET_COOKIE", loginUser, cookie);
 				document.cookie = cookie;
 				document.location = "../";
 			})
@@ -117,4 +128,4 @@ let mapStateToProps = function (state, props) {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

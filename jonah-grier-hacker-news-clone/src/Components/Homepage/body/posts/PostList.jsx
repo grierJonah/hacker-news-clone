@@ -14,7 +14,6 @@ class PostList extends React.Component {
 	}
 
 	checkLinkExists(url) {
-		console.log(url);
 		if (url === undefined) {
 			return "";
 		} else if (url.length !== 0) {

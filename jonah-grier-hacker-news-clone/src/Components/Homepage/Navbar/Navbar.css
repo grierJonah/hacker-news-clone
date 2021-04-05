@@ -20,7 +20,7 @@
 }
 
 #jobs-tag::after,
-#profile-tag::after,
+#log-out-tag::after,
 #user-login::after {
 	content: "";
 }
@@ -42,7 +42,8 @@ li {
 }
 
 #user-register,
-#profile-tag {
+#profile-tag,
+#log-out-tag {
 	float: right;
 	margin-right: 5px;
 }

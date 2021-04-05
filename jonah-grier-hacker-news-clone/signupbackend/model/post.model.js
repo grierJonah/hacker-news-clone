@@ -4,12 +4,10 @@ const PostSchema = require('../schema/post.schema');
 const PostModel = mongoose.model("posts", PostSchema);
 
 function addBlogPost(post) {
-    console.log('Creating a new blog...', post);
     return PostModel.create(post);
 }
 
 function addUrlPost(post) {
-    console.log('Creating a new url post...', post);
     return PostModel.create(post);
 }
 

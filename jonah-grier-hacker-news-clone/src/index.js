@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from "redux"
+// import { persistStore } from 'redux-persist'
+// import { PersistGate } from 'redux-persist/integration/react'
+// import storage from 'redux-persist/lib/storage'
 import reducer from './reducers/reducer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -14,10 +17,12 @@ import Post from './components/post/post'
 import reportWebVitals from './reportWebVitals';
 
 const store = createStore(reducer);
+// const persistor = persistStore(store);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+    {/* <PersistGate loading={null} persistor={persistor}> */}
     <Router>
       <Switch>
         <Route exact path={"/"} component={HomePage} />
@@ -29,6 +34,7 @@ ReactDOM.render(
         <HomePage />
       </Switch>
     </Router>
+      {/* </PersistGate> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

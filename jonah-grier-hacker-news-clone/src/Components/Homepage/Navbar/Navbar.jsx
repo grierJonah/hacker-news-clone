@@ -17,7 +17,7 @@ class Navbar extends React.Component {
 						<li>
 							<b>Hacker News Clone</b>&nbsp;
 						</li>
-						{this.props.state_is_verified.loggedIn ? (
+						{this.props.loggedOn ? (
 							<LoggedInNav />
 						) : (
 							<LoggedOutNav />

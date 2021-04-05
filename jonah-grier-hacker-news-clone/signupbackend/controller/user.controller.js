@@ -18,16 +18,18 @@ router.post('/signup', (req, res) => {
 });
 
 router.post('/authenticate', function (req, res) {
-    console.log(req);
-    const {username, password} = req.query;
+    const {username, password} = req.body;
+    console.log(username, password);
     UserModel.getUserByUserName(username)
         .then((user) => {
+            console.log("Found user in db", user);
             if (bcrypt.compareSync(password, user.password)) {
                 const payload = username;
                 const token = jwt.sign({username: payload}, process.env.SECRET, {
                     expiresIn: '1h',
                 })
-                return res.cookie('token', token, {httpOnly: true})
+
+                res.cookie('token', token, {httpOnly: true})
                     .send({token});
             } else {
                 return res.status(404).send('Failed to authenticate user!');

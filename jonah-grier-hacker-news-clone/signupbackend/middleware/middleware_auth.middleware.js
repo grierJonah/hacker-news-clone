@@ -2,11 +2,12 @@ const jwt = require('jsonwebtoken');
 
 module.exports = function(req, res, next) {
     const token = req.cookies.token;
+    console.log("Token:",token);
     // Get the token out of the cookie and request.  This is made easy to ready by cookie-parser
     if (!token) {
         // If the cookie is missue, send back an error
         console.log("No token found! You must log in to use this feature!");
-        res.status(401).send('Unauthorized: No token provided');
+        return res.status(401).send('Unauthorized: No token provided');
     } else {
         // Check that the token is valid and not expired
 
