@@ -5,7 +5,7 @@ const authParser = require('../middleware/middleware_auth.middleware');
 
 
 
-router.post('/add_blog_post', authParser, (req, res) => {
+router.post('/add_blog_post', (req, res) => {
     console.log("Adding blog:", req.body);
     if(!req.body.title || !req.body.body) {
         return res.status(404).send({message: "Post must contain a title and body!"});
@@ -15,7 +15,7 @@ router.post('/add_blog_post', authParser, (req, res) => {
         (error) => res.status(500).send(error);
 });
 
-router.post('/add_url_post', (req, res) => {
+router.post('/add_url_post', authParser, (req, res) => {
     console.log("Adding url:",req.body);
     if(!req.body.title || !req.body.url) {
         return res.status(404).send({message: "Post must contain a title and url!"});
@@ -32,8 +32,14 @@ router.get('/getAllPosts', (req, res) => {
 });
 
 router.get('/getPost/:title', (req, res) => {
-    return PostModel.getPostByPostName(req.params.title)
+    return PostModel.getPostByPostName(req.body.title)
         .then(post => res.status(200).send(post)), 
+        error => res.status(500).send(error);
+})
+
+router.get('/getPostByUser/:username', (req, res) => {
+    return PostModel.getPostByUsername(req.body.username)
+        .then(post => res.status(200).send(post)),
         error => res.status(500).send(error);
 })
 

@@ -8,7 +8,7 @@ export default class post_body_form extends React.Component {
 			title: "",
 			url: "",
 			body: "",
-			// username: "",
+			username: "",
 			// token: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
@@ -27,41 +27,37 @@ export default class post_body_form extends React.Component {
 		});
 	}
 
-	// changeToken(event) {
-	// 	this.setState({
-	// 		token: event.target.value,
-	// 	});
-	// }
-
 	sendToDatabase(event) {
 		event.preventDefault();
 
-		// this.changeToken(document.);
+		if (sessionStorage.getItem("cookie")) {
+			const newBlogPost = {
+				title: this.state.title,
+				url: "",
+				body: this.state.body,
+				username: sessionStorage.getItem("username"),
+			};
 
-		const newBlogPost = {
-			title: this.state.title,
-			url: "",
-			body: this.state.body,
-			// token: this.state.token,
-		};
+			axios
+				.post("http://localhost:4000/posts/add_blog_post", newBlogPost)
+				.then((response) => {
+					// console.log("Axious then-->", response);
+					// if (response.status === 401) {
+					// 	console.log("damnit");
+					// }
+					console.log(response);
+				});
 
-		axios
-			.post("http://localhost:4000/posts/add_blog_post", newBlogPost)
-			.then((response) => {
-				// console.log("Axious then-->", response);
-				// if (response.status === 401) {
-				// 	console.log("damnit");
-				// }
-				console.log(response);
+			document.location = "../";
+			this.setState({
+				title: "",
+				url: "",
+				body: "",
+				username: "",
 			});
-
-		// document.location = "../";
-		this.setState({
-			title: "",
-			url: "",
-			body: "",
-			// token: "",
-		});
+		} else {
+			console.log("You need to be logged in to do this");
+		}
 	}
 
 	render() {

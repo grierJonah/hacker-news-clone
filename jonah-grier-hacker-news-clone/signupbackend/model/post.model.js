@@ -14,6 +14,11 @@ function addUrlPost(post) {
 function getPostByPostName(title) {
     return PostModel.findOne({title: title}).exec();
 }
+
+function getPostByUsername(username) {
+    return PostModel.findOne({username: username}).exec();
+}
+
  function getAllPosts() {
     return PostModel.find().exec();
 }
@@ -22,5 +27,6 @@ module.exports = {
     addBlogPost,
     addUrlPost,
     getPostByPostName,
+    getPostByUsername,
     getAllPosts,
 };

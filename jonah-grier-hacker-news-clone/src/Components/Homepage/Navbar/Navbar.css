@@ -25,11 +25,9 @@
 	content: "";
 }
 
-ul {
+#header-navigation {
 	list-style-type: none;
 	width: 100%;
-	margin: 0px;
-	padding: 0;
 	background-color: rgb(255, 91, 0);
 }
 

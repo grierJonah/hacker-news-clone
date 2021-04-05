@@ -39,3 +39,15 @@ a:hover {
 	margin: 0 5px 0 1px;
 	color: rgb(143, 143, 143);
 }
+
+.db-post-information {
+	display: flex;
+	flex-direction: row;
+	margin-left: 32px;
+	margin-top: -10px;
+	color: rgb(143, 143, 143);
+}
+
+#ul-post {
+	background-color: none;
+}

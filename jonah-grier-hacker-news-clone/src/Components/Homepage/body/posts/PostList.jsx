@@ -29,17 +29,33 @@ class PostList extends React.Component {
 
 	showPosts() {
 		return this.state.posts.map((post, index) => {
+			console.log(post);
 			return (
-				<div className="db-posts" key={index}>
-					<span className="db-post-index">
-						{index + 1}.<span id="db-post-triangle">▲</span>
-					</span>
-					<h6 className="db-post-title">
-						<a href={post.title}>{post.title}</a>
-					</h6>
-					<span className="db-post-url">
-						<small>{this.checkLinkExists(post.url)}</small>
-					</span>
+				<div>
+					<div className="db-posts" key={index}>
+						<span className="db-post-index">
+							{index + 1}.<span id="db-post-triangle">▲</span>
+						</span>
+						<h6 className="db-post-title">
+							<a href={post.title}>{post.title}</a>
+						</h6>
+						<span className="db-post-url">
+							<small>{this.checkLinkExists(post.url)}</small>
+						</span>
+					</div>
+					<div className="db-post-information">
+						<ul id="ul-post">
+							<li>{post.username}</li>
+							<li>comments</li>
+						</ul>
+
+						{/* <span >
+							<small>{post.username}</small>
+						</span>
+						<span>
+							<small>Comments</small>
+						</span> */}
+					</div>
 				</div>
 			);
 		});
