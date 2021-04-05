@@ -14,7 +14,10 @@ class PostList extends React.Component {
 	}
 
 	checkLinkExists(url) {
-		if (url.length !== 0) {
+		console.log(url);
+		if (url === undefined) {
+			return "";
+		} else if (url.length !== 0) {
 			return (
 				<span className="db-post-url">
 					<a href={url} target={url}>
@@ -23,7 +26,6 @@ class PostList extends React.Component {
 				</span>
 			);
 		}
-		return "";
 	}
 
 	showPosts() {
