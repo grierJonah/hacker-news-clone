@@ -30,7 +30,7 @@ export default class logged_in_nav extends React.Component {
 					</a>
 				</li>
 				<li className="tags" id="profile-tag">
-					<a href="/">
+					<a href="../profile">
 						&nbsp;Welcome {sessionStorage.getItem("username")}
 					</a>
 				</li>
