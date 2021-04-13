@@ -25,12 +25,16 @@ export default class post_body_form extends React.Component {
 		});
 	}
 
+	sanitizeTitle(title) {
+		return title.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+	}
+
 	sendToDatabase(event) {
 		event.preventDefault();
 
 		if (sessionStorage.getItem("cookie")) {
 			const newBlogPost = {
-				title: this.state.title,
+				title: this.sanitizeTitle(this.state.title),
 				url: "",
 				body: this.state.body,
 				username: sessionStorage.getItem("username"),

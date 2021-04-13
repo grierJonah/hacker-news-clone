@@ -25,13 +25,16 @@ export default class post_url_form extends React.Component {
 		});
 	}
 
+	sanitizeTitle(title) {
+		return title.replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ");
+	}
+
 	sendToDatabase(event) {
-		// Prevents the form to act in a default way --> don't want whole page to refresh, we want redirection
 		event.preventDefault();
 
 		if (sessionStorage.getItem("cookie")) {
 			const newBlogPost = {
-				title: this.state.title,
+				title: this.sanitizeTitle(this.state.title),
 				url: this.state.url,
 				body: "",
 				username: sessionStorage.getItem("username"),
