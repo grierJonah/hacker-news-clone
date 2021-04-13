@@ -1,0 +1,16 @@
+.individual-post-container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+}
+
+.individual-post-header-title {
+	display: flex;
+	background-color: coral;
+	justify-content: center;
+}
+
+.individual-post-body {
+	border: 1px solid black;
+}
