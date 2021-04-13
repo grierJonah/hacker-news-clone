@@ -32,9 +32,9 @@ router.get('/getAllPosts', (req, res) => {
 });
 
 router.get('/getPost/:title', (req, res) => {
-    return PostModel.getPostByPostName(req.body.title)
-        .then(post => res.status(200).send(post)), 
-        error => res.status(500).send(error);
+    return PostModel.getPostByPostName(req.params.title)
+        .then(post => (res.status(200).send(post)), 
+        error => res.status(500).send(error));
 })
 
 router.get('/getPostByUser/:username', (req, res) => {

@@ -11,7 +11,7 @@ import Register from './components/register/register'
 import Login from './components/login/login'
 import Post from './components/post/post'
 import Profile from './components/profile/profile'
-import Random from './components/random'
+import individualPost from './components/clickable_posts/individualPost'
 
 const store = createStore(reducer);
 
@@ -25,7 +25,7 @@ ReactDOM.render(
         <Route exact path={"/authenticate"} component={Login} />
         <Route exact path={"/add_post"} component={Post} />
         <Route exact path={"/profile"} component={Profile} />
-        <Route exact path={"/:Post"} component={Random} />
+        <Route exact path={"/:Post"} component={individualPost}/>
          
         <Route render={() => <h1>Path not found!</h1>} />
         <HomePage />

@@ -17,6 +17,9 @@ module.exports = new Schema({
         type: String, 
         index: true 
     },
+    postId: {
+        type: Schema.Types.ObjectId,
+    },
     date: {
         type: Date,
         default: Date.now()
