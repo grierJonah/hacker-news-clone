@@ -12,4 +12,8 @@ router.post('/add_comment', (req, res) => {
         (error) => res.status(500).send(error)
 });
 
+router.get('/get_comments', (req, res) => {
+    console.log("Getting all comments", req.body);
+})
+
 module.exports = router;

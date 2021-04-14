@@ -2,14 +2,15 @@ import React from "react";
 import axios from "axios";
 import "./addCommentForm.css";
 
-export default class post_body_form extends React.Component {
-	constructor() {
-		super();
+export default class post_comment_form extends React.Component {
+	constructor(props) {
+		super(props);
 		this.state = {
 			title: "",
 			body: "",
 			username: "",
 			isActive: false,
+			name: "Add Comment",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
 		this.changeBody = this.changeBody.bind(this);
@@ -33,7 +34,6 @@ export default class post_body_form extends React.Component {
 	}
 
 	addCommentFunc() {
-		console.log(this.state.isActive);
 		this.setState({
 			isActive: !this.state.isActive,
 		});
@@ -43,25 +43,17 @@ export default class post_body_form extends React.Component {
 		event.preventDefault();
 
 		if (sessionStorage.getItem("cookie")) {
-			const newBlogPost = {
-				title: this.sanitizeTitle(this.state.title),
-				url: "",
+			const newComment = {
+				title: this.props.blog_title,
 				body: this.state.body,
 				username: sessionStorage.getItem("username"),
 			};
 
 			axios
-				.post("http://localhost:4000/posts/add_blog_post", newBlogPost)
+				.post("http://localhost:4000/comments/add_comment", newComment)
 				.then((response) => {
 					console.log(response);
 				});
-
-			document.location = "../";
-			this.setState({
-				title: "",
-				body: "",
-				username: "",
-			});
 		} else {
 			document.location = "../authenticate";
 		}
@@ -95,13 +87,17 @@ export default class post_body_form extends React.Component {
 								/>
 							</div>
 							<div id="back-button">
-								<a href="../">Cancel</a>
+								<a onClick={this.addCommentFunc}>Cancel</a>
 							</div>
 						</form>
 					</div>
 				) : null}
 				<div id="add-comment-button">
-					<button onClick={this.addCommentFunc}>Add Comment</button>
+					{this.state.isActive ? null : (
+						<button onClick={this.addCommentFunc}>
+							Add Comment
+						</button>
+					)}
 				</div>
 			</div>
 		);

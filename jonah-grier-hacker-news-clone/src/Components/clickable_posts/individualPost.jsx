@@ -5,7 +5,8 @@ import "./individualPost.css";
 // import PostBodyForm from "./body_form/post_body_form";
 import AddCommentForm from "./CommentForm/addCommentForm";
 
-const url = "http://localhost:4000/posts";
+const url = "http://localhost:4000/posts/";
+const comment_url = "http://localhost:4000/comments/";
 
 export default class Random extends React.Component {
 	constructor(props) {
@@ -18,7 +19,6 @@ export default class Random extends React.Component {
 	}
 
 	showPosts() {
-		console.log("this.state.post: ", this.state.post);
 		return (
 			<div className="individual-post-container">
 				<div className="individual-post-header-title">
@@ -27,7 +27,14 @@ export default class Random extends React.Component {
 
 				<div className="individual-add-comment">
 					<div className="post-comment-container">
-						{<AddCommentForm title={this.state.title} />}
+						{sessionStorage.getItem("username") ? (
+							<AddCommentForm
+								blog_title={this.state.post.title}
+							/>
+						) : null}
+					</div>
+					<div id="individual-post-back-button">
+						<a href="../">Go Back</a>
 					</div>
 				</div>
 
@@ -36,6 +43,7 @@ export default class Random extends React.Component {
 						? this.state.post.body
 						: this.state.post.url}
 				</div>
+
 				<div className="individual-comments-section"></div>
 			</div>
 		);

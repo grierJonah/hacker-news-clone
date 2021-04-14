@@ -3,6 +3,7 @@ const Schema = require('mongoose').Schema;
 module.exports = new Schema({
    title: {
        type: String,
+       required: true,
    },
    body: {
        type: String, 

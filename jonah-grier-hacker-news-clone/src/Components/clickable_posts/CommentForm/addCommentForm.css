@@ -8,10 +8,3 @@ button {
 	justify-content: center;
 	align-content: center;
 }
-
-#something button {
-	align-items: center;
-	justify-content: center;
-	margin-left: 160px;
-	/* width: 100px; */
-}
