@@ -38,7 +38,7 @@ router.get('/getPost/:title', (req, res) => {
 })
 
 router.get('/getPostByUser/:username', (req, res) => {
-    return PostModel.getPostByUsername(req.body.username)
+    return PostModel.getPostByUsername(req.params.username)
         .then(post => res.status(200).send(post)),
         error => res.status(500).send(error);
 })

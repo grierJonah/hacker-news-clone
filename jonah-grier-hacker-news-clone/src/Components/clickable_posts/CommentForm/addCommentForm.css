@@ -8,3 +8,11 @@ button {
 	justify-content: center;
 	align-content: center;
 }
+
+#back-button {
+	cursor: pointer;
+}
+
+a:hover {
+	color: rgb(0, 87, 197);
+}

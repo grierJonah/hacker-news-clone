@@ -28,6 +28,8 @@ class PostList extends React.Component {
 	}
 
 	showPosts() {
+		console.log("posts", this.state.posts);
+		console.log(typeof this.state.posts);
 		return this.state.posts.map((post, index) => {
 			return (
 				<div>
@@ -61,6 +63,7 @@ class PostList extends React.Component {
 		axios
 			.get(url + "/getAllPosts")
 			.then((response) => {
+				console.log(response);
 				const data = response.data;
 				this.setState({ posts: data });
 			})

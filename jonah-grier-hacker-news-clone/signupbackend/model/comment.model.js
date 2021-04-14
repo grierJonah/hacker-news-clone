@@ -3,20 +3,30 @@ const CommentSchema = require('../schema/comment.schema');
 
 const CommentModel = mongooose.model("comments", CommentSchema);
 
-function addCommentPost(comment) {
+function addComment(comment) {
     return CommentModel.create(comment);
 }
 
-function deleteCommentPost(username) {
+function deleteComment(username) {
     return CommentModel.deleteOne({username: username});
 }
 
-function editCommentPost(username) {
+function getCommentByTitle(title) {
+    return CommentModel.findOne({title: title});
+}
+
+function editComment(username) {
     return CommentModel.findOneAndUpdate({username: username});
 }
 
+function getAllComments() {
+    return CommentModel.find().exec();
+}
+
 module.exports = {
-    addCommentPost,
-    deleteCommentPost,
-    editCommentPost
+    addComment,
+    deleteComment,
+    editComment,
+    getAllComments,
+    getCommentByTitle,
 }

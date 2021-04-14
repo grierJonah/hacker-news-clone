@@ -1,12 +1,10 @@
 import React from "react";
 import axios from "axios";
 import "./individualPost.css";
-// import PostBodyForm from "../post/body_form/post_body_form";
-// import PostBodyForm from "./body_form/post_body_form";
 import AddCommentForm from "./CommentForm/addCommentForm";
 
-const url = "http://localhost:4000/posts/";
-const comment_url = "http://localhost:4000/comments/";
+const url = "http://localhost:4000/posts";
+const comment_url = "http://localhost:4000/comments";
 
 export default class Random extends React.Component {
 	constructor(props) {
@@ -49,12 +47,29 @@ export default class Random extends React.Component {
 		);
 	}
 
+	generateCommentsList() {
+		this.setState({
+			comments: this.showComments(),
+		});
+	}
+
+	showComments() {
+		return this.state.comments.map((comment, index) => {
+			if (comment.title === this.state.post.title) {
+				return <div>{comment.title}</div>;
+			}
+		});
+		// return Object.values(this.state.comments).map((comment, index) => {
+		// 	return comment;
+		// })
+	}
+
 	componentDidMount() {
 		this.getPosts();
+		this.getComments();
 	}
 
 	getPosts() {
-		console.log(this.props.location.pathname);
 		let post_title = this.props.location.pathname.replace("/", "");
 
 		post_title = encodeURIComponent(post_title.trim());
@@ -62,6 +77,8 @@ export default class Random extends React.Component {
 		axios
 			.get(url + "/getPost/" + post_title)
 			.then((response) => {
+				console.log("Getting post response:", response);
+
 				const data = response.data;
 				this.setState({ post: data });
 			})
@@ -70,22 +87,30 @@ export default class Random extends React.Component {
 			});
 	}
 
-	render() {
-		return <div className="list_of_posts">{this.showPosts()}</div>;
+	getComments() {
+		let post_title = this.props.location.pathname.replace("/", "");
+
+		post_title = encodeURIComponent(post_title.trim());
+
+		axios
+			.get(comment_url + "/get_comments")
+			.then((response) => {
+				console.log("Getting comments:", response);
+
+				let data = response.data;
+				this.setState({ comments: data });
+			})
+			.catch(() => {
+				console.log("Error retrieving comment data!");
+			});
 	}
 
-	// render() {
-	// 	console.log(this.props);
-
-	// 	return (
-	// 		<div className="individual-post-container">
-	// 			<div className="individual-post-header-title">
-	// 				<h1> {this.props.location.pathname.replace("/", "")}</h1>
-	// 			</div>
-	// 			<div className="individual-post-body">
-	// 				<h6>This is squared off for the body</h6>
-	// 			</div>
-	// 		</div>
-	// 	);
-	// }
+	render() {
+		return (
+			<div className="outer-individual-post-container">
+				<div className="list_of_posts">{this.showPosts()}</div>
+				<div className="comments-section">{this.showComments()}</div>
+			</div>
+		);
+	}
 }

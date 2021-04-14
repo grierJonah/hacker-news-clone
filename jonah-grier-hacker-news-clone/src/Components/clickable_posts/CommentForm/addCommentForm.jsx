@@ -61,7 +61,7 @@ export default class post_comment_form extends React.Component {
 
 	render() {
 		return (
-			<div id="something">
+			<div>
 				{this.state.isActive ? (
 					<div className="form-group">
 						<form onSubmit={this.sendToDatabase.bind(this)}>
