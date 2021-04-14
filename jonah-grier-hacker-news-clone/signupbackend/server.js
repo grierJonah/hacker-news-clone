@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const postRoutes = require('./controller/post.controller');
 const userRoutes = require('./controller/user.controller');
+const commentRoutes = require('./controller/comment.controller');
 
 const cors = require('cors')
 const cookieParser = require('cookie-parser');
@@ -20,4 +21,5 @@ app.use(cors());
 app.use(cookieParser());
 app.use('/posts', postRoutes);
 app.use('/users', userRoutes);
+app.use('/comments', commentRoutes);
 app.listen(4000, () => console.log("server is up and running"));

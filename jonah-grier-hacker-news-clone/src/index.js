@@ -25,7 +25,7 @@ ReactDOM.render(
         <Route exact path={"/authenticate"} component={Login} />
         <Route exact path={"/add_post"} component={Post} />
         <Route exact path={"/profile"} component={Profile} />
-        <Route exact path={"/:Post"} component={individualPost}/>
+        <Route exact path={"/:individualPost"} component={individualPost}/>
          
         <Route render={() => <h1>Path not found!</h1>} />
         <HomePage />

@@ -1,6 +1,9 @@
 import React from "react";
 import axios from "axios";
 import "./individualPost.css";
+// import PostBodyForm from "../post/body_form/post_body_form";
+// import PostBodyForm from "./body_form/post_body_form";
+import AddCommentForm from "./CommentForm/addCommentForm";
 
 const url = "http://localhost:4000/posts";
 
@@ -10,6 +13,7 @@ export default class Random extends React.Component {
 		this.state = {
 			post: [],
 			title: props.title,
+			comments: [],
 		};
 	}
 
@@ -20,11 +24,19 @@ export default class Random extends React.Component {
 				<div className="individual-post-header-title">
 					{this.state.post.title}
 				</div>
+
+				<div className="individual-add-comment">
+					<div className="post-comment-container">
+						{<AddCommentForm title={this.state.title} />}
+					</div>
+				</div>
+
 				<div className="individual-post-body">
 					{this.state.post.body
 						? this.state.post.body
 						: this.state.post.url}
 				</div>
+				<div className="individual-comments-section"></div>
 			</div>
 		);
 	}
