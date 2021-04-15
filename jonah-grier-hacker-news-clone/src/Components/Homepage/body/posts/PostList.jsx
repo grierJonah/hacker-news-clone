@@ -28,8 +28,6 @@ class PostList extends React.Component {
 	}
 
 	showPosts() {
-		console.log("posts", this.state.posts);
-		console.log(typeof this.state.posts);
 		return this.state.posts.map((post, index) => {
 			return (
 				<div>

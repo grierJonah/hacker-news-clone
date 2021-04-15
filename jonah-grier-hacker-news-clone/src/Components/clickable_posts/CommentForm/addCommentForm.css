@@ -9,8 +9,9 @@ button {
 	align-content: center;
 }
 
-#back-button {
+#post-back-button {
 	cursor: pointer;
+	margin-top: -0.5px;
 }
 
 a:hover {

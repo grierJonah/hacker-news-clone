@@ -93,7 +93,11 @@ export default class post_comment_form extends React.Component {
 								/>
 							</div>
 							<div id="post-back-button">
-								<a onClick={this.addCommentFunc}>Cancel</a>
+								<a
+									href="javascript:void(0);"
+									onClick={this.addCommentFunc}>
+									Cancel
+								</a>
 							</div>
 						</form>
 					</div>
