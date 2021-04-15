@@ -18,16 +18,16 @@ router.get('/get_comments', (req, res) => {
         (error) => console.log(`Error receiving posts: ${error}`))
 })
 
-router.get('/get_comments/:body', (req, res) => {
-    console.log('Getting comment by body:', req.params);
-    return CommentModel.getCommentByBody(req.params.body)
+router.get('/get_comments/:id', (req, res) => {
+    console.log('Getting comment by id:', req.params);
+    return CommentModel.getCommentById(req.params.id)
         .then(comment => (res.status(200).send(comment)),
         error => res.status(500).send(error));
 });
 
-router.delete('/get_comments/:body', (req, res) => {
-    console.log('Deleting comment by body: ', req.params);
-    return CommentModel.deleteComment(req.params.body)
+router.delete('/get_comments/:id', (req, res) => {
+    console.log('Deleting comment by id: ', req.params);
+    return CommentModel.deleteComment(req.params.id)
         .then(comment => (res.status(200).send(comment)),
         error => res.status(500).send(error));
 
