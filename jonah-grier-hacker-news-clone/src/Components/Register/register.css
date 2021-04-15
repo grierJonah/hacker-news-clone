@@ -10,22 +10,17 @@
 	align-items: center;
 }
 
-.form-group {
-	align-items: center;
-	justify-content: center;
-	color: black;
-}
-
 #register-button {
 	display: flex;
-	float: left;
+	float: right;
 	background-color: none;
 	border: none;
+	margin-left: 5%;
 }
 
 #back-button {
 	display: flex;
-	float: right;
+	float: left;
 	border: 1px solid rgb(0, 112, 255);
 	border-radius: 6.9%;
 	padding: 6px 12px;

@@ -13,17 +13,26 @@ router.post('/add_comment', (req, res) => {
 });
 
 router.get('/get_comments', (req, res) => {
-    console.log("Getting all comments", req.body);
     return CommentModel.getAllComments()
         .then(post => (res.status(200).send(post)),
         (error) => console.log(`Error receiving posts: ${error}`))
 })
 
-router.get('/get_comments/:title', (req, res) => {
-    console.log('Getting comments by title', req.body);
-    return CommentModel.getCommentByTitle(req.params.title)
+router.get('/get_comments/:body', (req, res) => {
+    console.log('Getting comment by body:', req.params);
+    return CommentModel.getCommentByBody(req.params.body)
         .then(comment => (res.status(200).send(comment)),
         error => res.status(500).send(error));
 });
+
+router.delete('/get_comments/:body', (req, res) => {
+    console.log('Deleting comment by body: ', req.params);
+    return CommentModel.deleteComment(req.params.body)
+        .then(comment => (res.status(200).send(comment)),
+        error => res.status(500).send(error));
+
+})
+
+// router.get('/edit_comment/:')
 
 module.exports = router;

@@ -10,7 +10,6 @@ export default class post_comment_form extends React.Component {
 			body: "",
 			username: "",
 			isActive: false,
-			name: "Add Comment",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
 		this.changeBody = this.changeBody.bind(this);
@@ -54,6 +53,13 @@ export default class post_comment_form extends React.Component {
 				.then((response) => {
 					console.log(response);
 				});
+
+			document.location = "/" + this.props.blog_title;
+			this.setState({
+				title: "",
+				body: "",
+				username: "",
+			});
 		} else {
 			document.location = "../authenticate";
 		}
@@ -82,11 +88,11 @@ export default class post_comment_form extends React.Component {
 								id="register-outer-button">
 								<input
 									type="submit"
-									className="btn btn-primary"
+									className="btn btn-success"
 									value="Submit"
 								/>
 							</div>
-							<div id="back-button">
+							<div id="post-back-button">
 								<a onClick={this.addCommentFunc}>Cancel</a>
 							</div>
 						</form>

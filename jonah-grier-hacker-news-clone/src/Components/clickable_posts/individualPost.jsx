@@ -37,9 +37,11 @@ export default class Random extends React.Component {
 				</div>
 
 				<div className="individual-post-body">
-					{this.state.post.body
-						? this.state.post.body
-						: this.state.post.url}
+					{this.state.post.body ? (
+						this.state.post.body
+					) : (
+						<a href={this.state.post.url}>{this.state.post.url}</a>
+					)}
 				</div>
 
 				<div className="individual-comments-section"></div>
@@ -53,15 +55,121 @@ export default class Random extends React.Component {
 		});
 	}
 
+	parseDate(timestamp) {
+		let date = timestamp.split("-");
+		let day = date[2];
+		day = day.split("T");
+		let hour = day[1].split(".");
+
+		let finalTime =
+			date[1] + "-" + day[0] + "-" + date[0] + " at " + hour[0];
+		return finalTime;
+	}
+
+	editComment(index) {
+		console.log(this.state.comments[index]);
+	}
+
+	deleteComment(index) {
+		let comment = encodeURIComponent(this.state.comments[index]._id);
+
+		let commentPath =
+			"http://localhost:4000/comments/get_comments/" + comment;
+
+		axios.delete(commentPath, {}).then((response) => {
+			this.setState({
+				comments: this.state.comments.filter(
+					(comments) => comments.body !== comment.body
+				),
+			});
+		});
+		document.location = "";
+	}
+
 	showComments() {
 		return this.state.comments.map((comment, index) => {
 			if (comment.title === this.state.post.title) {
-				return <div>{comment.title}</div>;
+				if (comment.username === sessionStorage.getItem("username")) {
+					return (
+						<div className="individual-db-comments-container">
+							<div className="individual-db-comments">
+								{index}.
+								<span className="db-comment-index">➞</span>
+								<span className="db-comment-body">
+									{comment.body}
+								</span>
+								<div className="db-comment-information">
+									<ul id="ul-comment">
+										<small id="db-small-information">
+											<li id="ul-comment-username">
+												author:
+												{" " + comment.username}
+											</li>
+											<li id="ul-comment-date">
+												posted:
+												{" " +
+													this.parseDate(
+														comment.date
+													)}
+											</li>
+											<li id="ul-comment-delete">
+												<a
+													className="edit-comment-link"
+													onClick={() =>
+														this.deleteComment(
+															index
+														)
+													}>
+													delete
+												</a>
+											</li>
+											<li id="ul-comment-edit">
+												<a
+													className="edit-comment-link"
+													onClick={() =>
+														this.editComment(index)
+													}>
+													edit
+												</a>
+											</li>
+										</small>
+									</ul>
+								</div>
+							</div>
+						</div>
+					);
+				} else {
+					return (
+						<div className="individual-db-comments-container">
+							<div className="individual-db-comments">
+								{index}.
+								<span className="db-comment-index">➞</span>
+								<span className="db-comment-body">
+									{comment.body}
+								</span>
+								<div className="db-comment-information">
+									<ul id="ul-comment">
+										<small id="db-small-information">
+											<li id="ul-comment-username">
+												author:
+												{" " + comment.username}
+											</li>
+											<li id="ul-comment-date">
+												posted:
+												{" " +
+													this.parseDate(
+														comment.date
+													)}
+											</li>
+										</small>
+									</ul>
+								</div>
+							</div>
+						</div>
+					);
+				}
 			}
 		});
-		// return Object.values(this.state.comments).map((comment, index) => {
-		// 	return comment;
-		// })
 	}
 
 	componentDidMount() {
@@ -77,8 +185,6 @@ export default class Random extends React.Component {
 		axios
 			.get(url + "/getPost/" + post_title)
 			.then((response) => {
-				console.log("Getting post response:", response);
-
 				const data = response.data;
 				this.setState({ post: data });
 			})
@@ -95,8 +201,6 @@ export default class Random extends React.Component {
 		axios
 			.get(comment_url + "/get_comments")
 			.then((response) => {
-				console.log("Getting comments:", response);
-
 				let data = response.data;
 				this.setState({ comments: data });
 			})

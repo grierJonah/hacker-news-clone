@@ -7,12 +7,12 @@ function addComment(comment) {
     return CommentModel.create(comment);
 }
 
-function deleteComment(username) {
-    return CommentModel.deleteOne({username: username});
+function deleteComment(id) {
+    return CommentModel.deleteOne({_id: id});
 }
 
-function getCommentByTitle(title) {
-    return CommentModel.findOne({title: title});
+function getCommentById(id) {
+    return CommentModel.findOne({_id: id});
 }
 
 function editComment(username) {
@@ -28,5 +28,5 @@ module.exports = {
     deleteComment,
     editComment,
     getAllComments,
-    getCommentByTitle,
+    getCommentById,
 }

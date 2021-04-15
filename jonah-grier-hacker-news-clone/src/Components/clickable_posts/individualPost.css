@@ -1,8 +1,6 @@
 .individual-post-container {
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
-	width: 100vw;
 }
 
 .individual-post-header-title {
@@ -17,9 +15,8 @@
 	flex-direction: row;
 	margin: 10px 50px;
 	border: 1px solid black;
-	min-height: 50vh;
+	min-height: 15vh;
 	align-items: center;
-	text-align: center;
 }
 
 .individual-add-comment {
@@ -54,4 +51,33 @@
 
 button {
 	margin-top: 5px;
+}
+
+.individual-db-comments-container {
+	margin: 10px 50px;
+	border: 1px solid black;
+	background-color: wheat;
+}
+
+.edit-comment-link:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#ul-comment {
+	margin-left: 2.6%;
+}
+
+#ul-comment-date {
+	margin-left: 1%;
+}
+
+#ul-comment-edit {
+	float: right;
+	margin-left: 1%;
+}
+
+#ul-comment-delete {
+	float: right;
+	margin-left: 1%;
 }

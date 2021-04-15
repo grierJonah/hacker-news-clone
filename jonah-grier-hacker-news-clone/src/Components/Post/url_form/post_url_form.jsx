@@ -99,7 +99,7 @@ export default class post_url_form extends React.Component {
 						<div>
 							<button
 								type="submit"
-								className="btn btn-primary"
+								className="btn btn-success"
 								id="post-url-submit">
 								Submit
 							</button>

@@ -93,11 +93,11 @@ export default class post_body_form extends React.Component {
 					<div className="form-group" id="register-outer-button">
 						<input
 							type="submit"
-							className="btn btn-primary"
+							className="btn btn-success"
 							value="Submit"
 						/>
 					</div>
-					<div id="back-button">
+					<div id="post-back-button">
 						<a href="../">Cancel</a>
 					</div>
 				</form>
