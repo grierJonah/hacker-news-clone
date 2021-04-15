@@ -93,7 +93,7 @@ export default class Random extends React.Component {
 					return (
 						<div className="individual-db-comments-container">
 							<div className="individual-db-comments">
-								{index}.
+								💬
 								<span className="db-comment-index">➞</span>
 								<span className="db-comment-body">
 									{comment.body}
