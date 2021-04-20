@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./PostList.css";
 
-const url = "http://localhost:4000/posts";
+// const url = "http://localhost:4000/posts";
 
 class PostList extends React.Component {
 	constructor(props) {
@@ -59,7 +59,7 @@ class PostList extends React.Component {
 
 	getPosts() {
 		axios
-			.get(url + "/getAllPosts")
+			.get("/posts/getAllPosts")
 			.then((response) => {
 				console.log(response);
 				const data = response.data;

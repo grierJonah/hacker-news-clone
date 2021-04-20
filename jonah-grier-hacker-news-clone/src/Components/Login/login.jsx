@@ -11,6 +11,7 @@ class Login extends React.Component {
 		this.state = {
 			username: "",
 			password: "",
+			failedAttempt: false,
 		};
 		this.changeUsername = this.changeUsername.bind(this);
 		this.changePassword = this.changePassword.bind(this);
@@ -65,7 +66,19 @@ class Login extends React.Component {
 				document.cookie = cookie;
 				document.location = "../";
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => {
+				this.setState({
+					failedAttempt: true,
+				});
+				console.log(error);
+			});
+	}
+
+	wrongUsernamePassword() {
+		const failedAttempt = this.state.failedAttempt;
+		if (failedAttempt) {
+			return <h3>Invalid Username or password! Please try again</h3>;
+		}
 	}
 
 	render() {
@@ -111,6 +124,7 @@ class Login extends React.Component {
 						</div>
 					</form>
 				</div>
+				{this.state.failedAttempt ? this.wrongUsernamePassword() : null}
 			</div>
 		);
 	}

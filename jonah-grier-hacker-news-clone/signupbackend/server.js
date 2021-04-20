@@ -22,4 +22,4 @@ app.use(cookieParser());
 app.use('/posts', postRoutes);
 app.use('/users', userRoutes);
 app.use('/comments', commentRoutes);
-app.listen(4000, () => console.log("server is up and running"));
+app.listen(4000, () => console.log("server is upppppp and running"));

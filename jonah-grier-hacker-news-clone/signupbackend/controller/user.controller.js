@@ -19,9 +19,11 @@ router.post('/signup', (req, res) => {
 
 router.post('/authenticate', function (req, res) {
     const {username, password} = req.body;
-    console.log(username, password);
     UserModel.getUserByUserName(username)
         .then((user) => {
+            if (user === null) {
+                return res.status(404).send('No user found');
+            }
             console.log("Found user in db", user);
             if (bcrypt.compareSync(password, user.password)) {
                 const payload = username;
@@ -32,7 +34,7 @@ router.post('/authenticate', function (req, res) {
                 res.cookie('token', token, {httpOnly: true})
                     .send({token});
             } else {
-                return res.status(404).send('Failed to authenticate user!');
+                return res.status(404).send('Invalid username or password!');
             }
         })
         .catch((error) => console.log(`Something went wrong ${error}`));

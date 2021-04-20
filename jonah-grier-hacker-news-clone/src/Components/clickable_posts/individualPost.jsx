@@ -3,9 +3,6 @@ import axios from "axios";
 import "./individualPost.css";
 import AddCommentForm from "./CommentForm/addCommentForm";
 
-const url = "http://localhost:4000/posts";
-const comment_url = "http://localhost:4000/comments";
-
 export default class Random extends React.Component {
 	constructor(props) {
 		super(props);
@@ -183,7 +180,7 @@ export default class Random extends React.Component {
 		post_title = encodeURIComponent(post_title.trim());
 
 		axios
-			.get(url + "/getPost/" + post_title)
+			.get("/posts/getPost/" + post_title)
 			.then((response) => {
 				const data = response.data;
 				this.setState({ post: data });
@@ -199,7 +196,7 @@ export default class Random extends React.Component {
 		post_title = encodeURIComponent(post_title.trim());
 
 		axios
-			.get(comment_url + "/get_comments")
+			.get("/comments/get_comments")
 			.then((response) => {
 				let data = response.data;
 				this.setState({ comments: data });

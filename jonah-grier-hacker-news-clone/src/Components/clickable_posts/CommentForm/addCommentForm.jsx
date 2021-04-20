@@ -48,11 +48,9 @@ export default class post_comment_form extends React.Component {
 				username: sessionStorage.getItem("username"),
 			};
 
-			axios
-				.post("http://localhost:4000/comments/add_comment", newComment)
-				.then((response) => {
-					console.log(response);
-				});
+			axios.post("/comments/add_comment", newComment).then((response) => {
+				console.log(response);
+			});
 
 			document.location = "/" + this.props.blog_title;
 			this.setState({
