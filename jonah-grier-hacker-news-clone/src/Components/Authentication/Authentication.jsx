@@ -17,8 +17,6 @@ const Authentication = () => {
 	const classes = authenticationStyles();
 	const [isSignedUp, setSignUp] = useState(false);
 	const [data, setData] = useState(initialData);
-	// const dispatch = useDispatch();
-	// const history = useHistory();
 
 	const handleSubmitForm = (e) => {
 		e.preventDefault();
