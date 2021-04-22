@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser');
 
 dotenv.config();
 
-mongoose.connect(process.env.DATABASE_ACCESS, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, () => console.log('Database Connected'))
+mongoose.connect(process.env.DATABASE_ACCESS, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }, () => console.log('Database Connected'))
 
 app.set('port', process.env.PORT || 8000);
 app.use(bodyParser.urlencoded({extended: false}));

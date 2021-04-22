@@ -15,8 +15,14 @@ function getCommentById(id) {
     return CommentModel.findOne({_id: id});
 }
 
-function editComment(username) {
-    return CommentModel.findOneAndUpdate({username: username});
+function editComment(id, new_body) {
+    console.log("NEW BODY::::",new_body)
+    return CommentModel.findOneAndUpdate({_id: id}, {$set: {body: new_body}}, {returnNewDocument: true})
+        .then((data) => {console.log("Data inputted: ")},
+        error => console.log("Error in model.js", error));
+    // return CommentModel.findOneAndUpdate({_id: id}, {body: body}, {returnNewDocument: true})
+    //     .then((data) => {console.log("Date inputted: ",data)},
+    //     error => console.log("Error in model.js", error));
 }
 
 function getAllComments() {

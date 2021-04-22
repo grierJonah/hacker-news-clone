@@ -2,8 +2,6 @@ import React from "react";
 import axios from "axios";
 import "./PostList.css";
 
-// const url = "http://localhost:4000/posts";
-
 class PostList extends React.Component {
 	constructor(props) {
 		super(props);

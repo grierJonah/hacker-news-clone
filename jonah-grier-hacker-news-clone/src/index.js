@@ -10,6 +10,7 @@ import HomePage from './components/homepage/HomePage'
 import Register from './components/register/register'
 import Login from './components/login/login'
 import Post from './components/post/post'
+import EditComment from './components/clickable_posts/comment_form/editCommentForm'
 import Profile from './components/profile/profile'
 import individualPost from './components/clickable_posts/individualPost'
 
@@ -24,6 +25,7 @@ ReactDOM.render(
         <Route exact path={"/signup"} component={Register} />
         <Route exact path={"/authenticate"} component={Login} />
         <Route exact path={"/add_post"} component={Post} />
+        <Route exact path={"/edit_post/:individualComment"} component={EditComment} />
         <Route exact path={"/profile"} component={Profile} />
         <Route exact path={"/:individualPost"} component={individualPost}/>
          

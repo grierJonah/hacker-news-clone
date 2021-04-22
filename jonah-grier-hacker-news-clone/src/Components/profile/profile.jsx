@@ -24,8 +24,6 @@ const Profile = () => {
 
 	const handleSubmitForm = (e) => {
 		e.preventDefault();
-		// useState(setData);
-		// const dispatch = useDispatch(handleChange(e));
 	};
 
 	const handleChange = (e) => {

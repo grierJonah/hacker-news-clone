@@ -33,6 +33,21 @@ router.delete('/get_comments/:id', (req, res) => {
 
 })
 
-// router.get('/edit_comment/:')
+router.put('/edit_comment/:id', (req, res) => {
+    console.log("Editing comment by id:", req.params);
+    const obj = JSON.parse(JSON.stringify(req.body))
+    console.log("Editing comment body:", obj);
+
+
+    return CommentModel.editComment(req.params.id, obj.body)
+        .then(comment => (res.status(200).send(comment)),
+        error => res.status(401).send(error));
+
+    // CommentModel.editComment(req.params)
+
+    // return CommentModel.editComment(req.params.username, req.params.id)
+    //     .then(comment => (res.status(200).send(comment)),
+    //     error => res.status(404).send(error));
+})
 
 module.exports = router;

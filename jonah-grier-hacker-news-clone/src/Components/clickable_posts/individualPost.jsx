@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./individualPost.css";
-import AddCommentForm from "./CommentForm/addCommentForm";
+import AddCommentForm from "./comment_form/addCommentForm";
 
 export default class Random extends React.Component {
 	constructor(props) {
@@ -10,6 +10,7 @@ export default class Random extends React.Component {
 			post: [],
 			title: props.title,
 			comments: [],
+			edit_comment: [],
 		};
 	}
 
@@ -64,7 +65,34 @@ export default class Random extends React.Component {
 	}
 
 	editComment(index) {
-		console.log(this.state.comments[index]);
+		console.log("we are in individual post");
+
+		const id = this.state.comments[index]._id;
+		const get_comment = axios
+			.get("/comments/get_comments/" + id)
+			.then((response) => {
+				console.log("response comment:", response.data);
+				const data = response.data;
+				// const date = data.date;
+				const id = data._id;
+
+				// const title = data.title;
+				// const body = data.body;
+				// const username = data.username;
+
+				// ok, so we have the response ... we just did a get request and now we need to allow the user to type a new addComment and update
+				// the original data here. So, what we should do is use the same addComment form but instead have it update and replace by ID..
+				// then we might not even need to grab any of the data from the original and instead just grab the data._id
+
+				// console.log(data, date, id, title, body, username);
+			})
+			.catch(() => {
+				console.log("Error retrieving comment!");
+			});
+
+		// return <IndividualComment />;
+		// let commentPath =
+		// "http://localhost:4000/comments/edit_comment/" + comment;
 	}
 
 	deleteComment(index) {
@@ -122,10 +150,13 @@ export default class Random extends React.Component {
 											</li>
 											<li id="ul-comment-edit">
 												<a
-													className="edit-comment-link"
-													onClick={() =>
-														this.editComment(index)
-													}>
+													href={
+														"./edit_post/" +
+														this.state.comments[
+															index
+														]._id
+													}
+													className="edit-comment-link">
 													edit
 												</a>
 											</li>
