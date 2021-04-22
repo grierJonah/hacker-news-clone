@@ -17,7 +17,7 @@ function getCommentById(id) {
 
 function editComment(id, new_body) {
     return CommentModel.findOneAndUpdate({_id: id}, {$set: {body: new_body}}, {returnNewDocument: true})
-        .then((data) => {console.log("Data inputted: ")},
+        .then((data) => {console.log("Data successfully edited")},
         error => console.log("Error in model.js", error));
 }
 

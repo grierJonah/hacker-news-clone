@@ -17,6 +17,8 @@
 	border: 1px solid black;
 	min-height: 15vh;
 	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 
 .individual-add-comment {

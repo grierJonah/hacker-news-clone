@@ -48,7 +48,7 @@ class Register extends React.Component {
 			.post("http://localhost:4000/users/signup", newRegisteredUser)
 			.then((response) => console.log(response.data));
 
-		// document.location = "../";
+		document.location = "../authenticate";
 		this.setState({
 			email: "",
 			username: "",
@@ -102,7 +102,7 @@ class Register extends React.Component {
 						<div className="form-group" id="register-button">
 							<input
 								type="submit"
-								className="btn btn-primary"
+								className="btn btn-success"
 								value="Register"
 							/>
 						</div>

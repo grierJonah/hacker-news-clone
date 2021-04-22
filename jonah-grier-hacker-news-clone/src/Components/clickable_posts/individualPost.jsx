@@ -64,37 +64,6 @@ export default class Random extends React.Component {
 		return finalTime;
 	}
 
-	editComment(index) {
-		console.log("we are in individual post");
-
-		const id = this.state.comments[index]._id;
-		const get_comment = axios
-			.get("/comments/get_comments/" + id)
-			.then((response) => {
-				console.log("response comment:", response.data);
-				const data = response.data;
-				// const date = data.date;
-				const id = data._id;
-
-				// const title = data.title;
-				// const body = data.body;
-				// const username = data.username;
-
-				// ok, so we have the response ... we just did a get request and now we need to allow the user to type a new addComment and update
-				// the original data here. So, what we should do is use the same addComment form but instead have it update and replace by ID..
-				// then we might not even need to grab any of the data from the original and instead just grab the data._id
-
-				// console.log(data, date, id, title, body, username);
-			})
-			.catch(() => {
-				console.log("Error retrieving comment!");
-			});
-
-		// return <IndividualComment />;
-		// let commentPath =
-		// "http://localhost:4000/comments/edit_comment/" + comment;
-	}
-
 	deleteComment(index) {
 		let comment = encodeURIComponent(this.state.comments[index]._id);
 
@@ -170,7 +139,7 @@ export default class Random extends React.Component {
 					return (
 						<div className="individual-db-comments-container">
 							<div className="individual-db-comments">
-								{index}.
+								💬
 								<span className="db-comment-index">➞</span>
 								<span className="db-comment-body">
 									{comment.body}

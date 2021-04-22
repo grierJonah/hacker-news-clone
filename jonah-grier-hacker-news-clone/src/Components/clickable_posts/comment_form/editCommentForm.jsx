@@ -11,8 +11,6 @@ export default class edit_comment_form extends React.Component {
 			body: "",
 			username: "",
 			old_title: "",
-			old_body: "",
-			old_username: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
 		this.changeBody = this.changeBody.bind(this);
@@ -47,9 +45,7 @@ export default class edit_comment_form extends React.Component {
 		if (sessionStorage.getItem("cookie")) {
 			const id = this.props.match.params.individualComment;
 
-			// const old_comment = getOldComment(id);
 			axios.get("/comments/get_comments/" + id).then((response) => {
-				// console.log("Inside.... old title?", response.data.title);
 				this.setState({
 					old_title: response.data.title,
 					body: this.state.body,

@@ -115,7 +115,7 @@ class Login extends React.Component {
 						<div className="form-group" id="register-outer-button">
 							<input
 								type="submit"
-								className="btn btn-primary"
+								className="btn btn-success"
 								value="Login"
 							/>
 						</div>
