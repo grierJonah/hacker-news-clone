@@ -9,6 +9,7 @@ export default class edit_post_body_form extends React.Component {
 			title: "",
 			body: "",
 			username: "",
+			id: "",
 		};
 		this.changeTitle = this.changeTitle.bind(this);
 		this.changeBody = this.changeBody.bind(this);
@@ -34,25 +35,54 @@ export default class edit_post_body_form extends React.Component {
 		event.preventDefault();
 
 		if (sessionStorage.getItem("cookie")) {
-			const newBlogPost = {
-				title: this.sanitizeTitle(this.state.title),
-				url: "",
+			const post_title = encodeURIComponent(this.props.match.params.Post);
+
+			console.log(post_title);
+
+			const a = axios
+				.get("http://localhost:4000/posts/getPost/" + post_title)
+				.then((response) => {
+					console.log(response.data);
+					this.setState({
+						id: response.data._id,
+						old_title: response.data.title,
+						body: response.data.body,
+					});
+				});
+
+			const new_post = {
+				title: this.state.old_title,
 				body: this.state.body,
 				username: sessionStorage.getItem("username"),
 			};
 
-			axios
-				.post("http://localhost:4000/posts/add_blog_post", newBlogPost)
-				.then((response) => {
-					console.log(response);
-				});
+			console.log("http://localhost:4000/posts/edit_post/" + post_title);
 
-			document.location = "/" + newBlogPost.title;
-			this.setState({
-				title: "",
-				body: "",
-				username: "",
-			});
+			axios
+				.put(
+					"http://localhost:4000/posts/edit_post/" +
+						new_post.old_title,
+					new_post
+				)
+				.then((res) => console.log("Finished editing post"));
+
+			// axios.get("/comments/get_comments/" + id).then((response) => {
+			// 	this.setState({
+			// 		old_title: response.data.title,
+			// 		body: this.state.body,
+			// 		username: sessionStorage.getItem("username"),
+			// 	});
+			// });
+			// const new_comment = {
+			// 	title: this.state.old_title,
+			// 	body: this.state.body,
+			// 	username: sessionStorage.getItem("username"),
+			// };
+			// console.log("New Comment:", new_comment.body);
+			// axios
+			// 	.put("/comments/edit_comment/" + id, new_comment)
+			// 	.then((res) => console.log("Finished editing!"));
+			// document.location = "../";
 		} else {
 			document.location = "../authenticate";
 		}

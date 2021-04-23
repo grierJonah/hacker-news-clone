@@ -23,6 +23,11 @@ function getPostById(id) {
     return PostModel.findOne({_id: id}).exec();
 }
 
+function editPost(title, new_body) {
+    return PostModel.findOneAndUpdate({title: title}, {$set: {body: new_body}}, {returnNewDocument: true})
+        .then((data) => {console.log("Data successfully edited")},
+        error => console.log("Error in model.js", error));
+}
 function deletePost(id) {
     return PostModel.deleteOne({_id: id});
 }
@@ -37,6 +42,7 @@ module.exports = {
     getPostByPostName,
     getPostByUsername,
     getPostById,
+    editPost,
     deletePost,
     getAllPosts,
 };

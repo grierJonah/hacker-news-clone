@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-// import axios from "axios";
 import "./editCommentForm.css";
 
 export default class edit_comment_form extends React.Component {
@@ -63,7 +62,7 @@ export default class edit_comment_form extends React.Component {
 				.put("/comments/edit_comment/" + id, new_comment)
 				.then((res) => console.log("Finished editing!"));
 
-			// document.location = this.props.history.goBack();
+			document.location = "../";
 		} else {
 			document.location = "../authenticate";
 		}

@@ -42,12 +42,6 @@ router.put('/edit_comment/:id', (req, res) => {
     return CommentModel.editComment(req.params.id, obj.body)
         .then(comment => (res.status(200).send(comment)),
         error => res.status(401).send(error));
-
-    // CommentModel.editComment(req.params)
-
-    // return CommentModel.editComment(req.params.username, req.params.id)
-    //     .then(comment => (res.status(200).send(comment)),
-    //     error => res.status(404).send(error));
 })
 
 module.exports = router;
