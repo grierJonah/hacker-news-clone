@@ -46,7 +46,7 @@ export default class post_body_form extends React.Component {
 					console.log(response);
 				});
 
-			document.location = "../";
+			document.location = "/" + newBlogPost.title;
 			this.setState({
 				title: "",
 				body: "",

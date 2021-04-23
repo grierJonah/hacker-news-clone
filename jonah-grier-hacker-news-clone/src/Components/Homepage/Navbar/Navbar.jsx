@@ -14,7 +14,10 @@ class Navbar extends React.Component {
 							<p id="hacker-news-logo">Y</p>
 						</div>
 						<li>
-							<b>Hacker News Clone</b>&nbsp;
+							<a href="/">
+								<b>Hacker News Clone</b>
+							</a>
+							&nbsp;
 						</li>
 						{this.props.loggedOn ? (
 							<LoggedInNav />

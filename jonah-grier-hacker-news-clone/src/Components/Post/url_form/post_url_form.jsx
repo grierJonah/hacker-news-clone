@@ -44,7 +44,7 @@ export default class post_url_form extends React.Component {
 				.post("http://localhost:4000/posts/add_url_post", newBlogPost)
 				.then((response) => console.log("Response:", response.data));
 
-			document.location = "../";
+			document.location = "/" + newBlogPost.title;
 			this.setState({
 				title: "",
 				url: "",

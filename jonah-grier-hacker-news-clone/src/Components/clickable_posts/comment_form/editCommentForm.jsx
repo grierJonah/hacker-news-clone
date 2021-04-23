@@ -106,13 +106,6 @@ export default class edit_comment_form extends React.Component {
 						</form>
 					</div>
 				</div>
-				{/* <div id="add-comment-button">
-					{this.state.isActive ? null : (
-						<button onClick={this.addCommentFunc}>
-							Add Comment
-						</button>
-					)}
-				</div> */}
 			</div>
 		);
 	}
