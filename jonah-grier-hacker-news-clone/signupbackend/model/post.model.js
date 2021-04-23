@@ -19,6 +19,14 @@ function getPostByUsername(username) {
     return PostModel.findOne({username: username}).exec();
 }
 
+function getPostById(id) {
+    return PostModel.findOne({_id: id}).exec();
+}
+
+function deletePost(id) {
+    return PostModel.deleteOne({_id: id});
+}
+
  function getAllPosts() {
     return PostModel.find().exec();
 }
@@ -28,5 +36,7 @@ module.exports = {
     addUrlPost,
     getPostByPostName,
     getPostByUsername,
+    getPostById,
+    deletePost,
     getAllPosts,
 };

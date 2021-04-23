@@ -28,7 +28,6 @@ a:hover {
 
 .db-post-title a:visited {
 	color: rgb(143, 143, 143);
-	/* color: saddlebrown; */
 }
 
 .db-post-index {
@@ -52,6 +51,18 @@ a:hover {
 	font-size: x-small;
 }
 
-#ul-post-username {
+#ul-post-username,
+#ul-post-comments,
+#ul-post-edit {
 	margin-right: 10px;
+}
+
+#ul-post-edit a {
+	color: rgb(143, 143, 143);
+	cursor: pointer;
+}
+
+#ul-post-delete a {
+	color: rgb(143, 143, 143);
+	cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../homepage/navbar/Navbar.css";
 import "./profile.css";
 import profileStyles from "./styles";
@@ -13,7 +13,6 @@ import {
 	Grid,
 } from "@material-ui/core";
 
-// const username = { name: sessionStorage.getItem("username") };
 const initialData = { email: "", password: "", avatarUrl: "" };
 
 const Profile = () => {
@@ -28,22 +27,6 @@ const Profile = () => {
 
 	const handleChange = (e) => {
 		setData({ ...data, [e.target.name]: e.target.value });
-	};
-
-	const getRandomColor = () => {
-		let colorIndex = [
-			"orange",
-			"purple",
-			"red_white",
-			"purple_white",
-			"deep_purple_white",
-			"cyan_black",
-			"green_blue",
-			"gold_black",
-		];
-
-		const color = colorIndex[Math.floor(Math.random(0, 1) * 8)];
-		return "." + color;
 	};
 
 	return (

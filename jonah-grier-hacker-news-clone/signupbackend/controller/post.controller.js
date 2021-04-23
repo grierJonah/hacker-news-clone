@@ -37,6 +37,21 @@ router.get('/getPost/:title', (req, res) => {
         error => res.status(500).send(error));
 })
 
+router.delete('/getPostById/:id', (req, res) => {
+    console.log('Deleting post by id: ', req.params.id);
+    return PostModel.deletePost(req.params.id)
+        .then(post => (res.status(200).send(post)), 
+        error => res.status(500).send(error));
+})
+
+router.delete('/get_comments/:id', (req, res) => {
+    console.log('Deleting comment by id: ', req.params);
+    return CommentModel.deleteComment(req.params.id)
+        .then(comment => (res.status(200).send(comment)),
+        error => res.status(500).send(error));
+
+})
+
 router.get('/getPostByUser/:username', (req, res) => {
     return PostModel.getPostByUsername(req.params.username)
         .then(post => res.status(200).send(post)),
