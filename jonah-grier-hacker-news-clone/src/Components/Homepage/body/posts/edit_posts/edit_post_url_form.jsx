@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./edit_post.css";
 
 export default class edit_post_url_form extends React.Component {
 	constructor() {
@@ -57,58 +58,60 @@ export default class edit_post_url_form extends React.Component {
 
 	render() {
 		return (
-			<div className="url-container">
-				<div className="form-group">
-					<label className="col-xs-3 col-form-label mr-2">
-						Post Title:
-					</label>
-					<div className="col-xs-9">
-						<input
-							type="text"
-							placeholder="Enter your Posts title"
-							className="form-control"
-							onChange={this.changeTitle}
-							value={this.state.title}
-							id="title"
-							name="title"
-							required={true}
-						/>
-					</div>
-				</div>
-				<div className="form-group">
-					<label
-						htmlFor="URL"
-						className="col-xs-3 col-form-label mr-2">
-						URL:
-					</label>
-					<div className="col-xs-9">
-						<input
-							type="text"
-							placeholder="Link to article"
-							className="form-control"
-							onChange={this.changeURL}
-							value={this.state.url}
-							id="url"
-							name="url"
-							required={true}
-						/>
-					</div>
-				</div>
-				<form onSubmit={this.sendToDatabase.bind(this)}>
+			<div className="edit-form-container">
+				<div className="url-container">
 					<div className="form-group">
-						<div>
-							<button
-								type="submit"
-								className="btn btn-success"
-								id="post-url-submit">
-								Submit
-							</button>
-							<div id="post-back-button">
-								<a href="../">Cancel</a>
-							</div>
+						<label className="col-xs-3 col-form-label mr-2">
+							Post Title:
+						</label>
+						<div className="col-xs-9">
+							<input
+								type="text"
+								placeholder="Enter your Posts title"
+								className="form-control"
+								onChange={this.changeTitle}
+								value={this.state.title}
+								id="title"
+								name="title"
+								required={true}
+							/>
 						</div>
 					</div>
-				</form>
+					<div className="form-group">
+						<label
+							htmlFor="URL"
+							className="col-xs-3 col-form-label mr-2">
+							URL:
+						</label>
+						<div className="col-xs-9">
+							<input
+								type="text"
+								placeholder="Link to article"
+								className="form-control"
+								onChange={this.changeURL}
+								value={this.state.url}
+								id="url"
+								name="url"
+								required={true}
+							/>
+						</div>
+					</div>
+					<form onSubmit={this.sendToDatabase.bind(this)}>
+						<div className="form-group">
+							<div>
+								<button
+									type="submit"
+									className="btn btn-success"
+									id="post-url-submit">
+									Submit
+								</button>
+								<div id="post-back-button">
+									<a href="../">Cancel</a>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		);
 	}

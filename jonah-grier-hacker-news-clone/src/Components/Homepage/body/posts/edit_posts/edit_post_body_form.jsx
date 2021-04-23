@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./edit_post.css";
 
 export default class edit_post_body_form extends React.Component {
 	constructor() {
@@ -59,48 +60,50 @@ export default class edit_post_body_form extends React.Component {
 
 	render() {
 		return (
-			<div className="form-group">
-				<form onSubmit={this.sendToDatabase.bind(this)}>
-					<div className="form-group">
-						<label className="col-xs-3 col-form-label mr-2">
-							Post Title:
-						</label>
-						<div className="col-xs-9">
-							<input
+			<div className="edit-form-container">
+				<div className="form-group">
+					<form onSubmit={this.sendToDatabase.bind(this)}>
+						<div className="form-group">
+							<label className="col-xs-3 col-form-label mr-2">
+								Post Title:
+							</label>
+							<div className="col-xs-9">
+								<input
+									className="form-control"
+									type="text"
+									placeholder="Posts Title"
+									onChange={this.changeTitle}
+									value={this.state.title}
+									required={true}
+								/>
+							</div>
+						</div>
+						<div className="mb-3">
+							<label htmlFor="postBody" className="form-label">
+								Body:
+							</label>
+							<textarea
 								className="form-control"
-								type="text"
-								placeholder="Posts Title"
-								onChange={this.changeTitle}
-								value={this.state.title}
+								rows={5}
+								cols={80}
+								onChange={this.changeBody}
+								value={this.state.body}
+								id="postBody"
 								required={true}
 							/>
 						</div>
-					</div>
-					<div className="mb-3">
-						<label htmlFor="postBody" className="form-label">
-							Body:
-						</label>
-						<textarea
-							className="form-control"
-							rows={5}
-							cols={80}
-							onChange={this.changeBody}
-							value={this.state.body}
-							id="postBody"
-							required={true}
-						/>
-					</div>
-					<div className="form-group" id="register-outer-button">
-						<input
-							type="submit"
-							className="btn btn-success"
-							value="Submit"
-						/>
-					</div>
-					<div id="post-back-button">
-						<a href="../">Cancel</a>
-					</div>
-				</form>
+						<div className="form-group" id="register-outer-button">
+							<input
+								type="submit"
+								className="btn btn-success"
+								value="Submit"
+							/>
+						</div>
+						<div id="post-back-button">
+							<a href="../">Cancel</a>
+						</div>
+					</form>
+				</div>
 			</div>
 		);
 	}
