@@ -26,7 +26,13 @@ class PostList extends React.Component {
 	}
 
 	editPost(index) {
-		console.log("To be implemented in PostList.jsx");
+		if (this.state.posts[index].body !== "") {
+			const body = this.state.posts[index].title;
+			return <a href={"./edit_body_post/" + body}>edit</a>;
+		} else {
+			const url = this.state.posts[index].title;
+			return <a href={"./edit_url_post/" + url}>edit</a>;
+		}
 	}
 
 	deletePost(index) {
@@ -66,9 +72,7 @@ class PostList extends React.Component {
 								<li id="ul-post-username">{post.username}</li>
 								<li id="ul-post-comments">comments</li>
 								<li id="ul-post-edit">
-									<a onClick={() => this.editPost(index)}>
-										edit
-									</a>
+									{this.editPost(index)}
 								</li>
 								<li id="ul-post-delete">
 									<a onClick={() => this.deletePost(index)}>

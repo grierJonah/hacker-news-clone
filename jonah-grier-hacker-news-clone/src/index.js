@@ -11,6 +11,8 @@ import Register from './components/register/register'
 import Login from './components/login/login'
 import Post from './components/post/post'
 import EditComment from './components/clickable_posts/comment_form/editCommentForm'
+import EditUrlPost from './components/homepage/body/posts/edit_posts/edit_post_url_form';
+import EditBodyPost from './components/homepage/body/posts/edit_posts/edit_post_body_form';
 import Profile from './components/profile/profile'
 import individualPost from './components/clickable_posts/individualPost'
 
@@ -25,10 +27,11 @@ ReactDOM.render(
         <Route exact path={"/signup"} component={Register} />
         <Route exact path={"/authenticate"} component={Login} />
         <Route exact path={"/add_post"} component={Post} />
-        <Route exact path={"/edit_post/:individualComment"} component={EditComment} />
         <Route exact path={"/profile"} component={Profile} />
         <Route exact path={"/:individualPost"} component={individualPost}/>
-         
+        <Route exact path={"/edit_post/:individualComment"} component={EditComment} />
+        <Route exact path={"/edit_url_post/:Post"} component={EditUrlPost} />
+        <Route exact path={"/edit_body_post/:Post"} component={EditBodyPost} /> 
         <Route render={() => <h1>Path not found!</h1>} />
         <HomePage />
       </Switch>
