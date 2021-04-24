@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import React from "react";
 import axios from "axios";
 
-const jwt = require("jsonwebtoken");
-
 class Login extends React.Component {
 	constructor() {
 		super();

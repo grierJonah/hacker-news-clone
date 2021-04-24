@@ -70,7 +70,7 @@ router.put('/edit_url_post/:title', (req, res) => {
 
     return PostModel.editPostBody(obj.id, obj.title, obj.body)
         .then(comment => (omment), res.status(200).send(comment)),
-        error => res.status(401).send(error));
+        error => res.status(401).send(error);
 })
 
 

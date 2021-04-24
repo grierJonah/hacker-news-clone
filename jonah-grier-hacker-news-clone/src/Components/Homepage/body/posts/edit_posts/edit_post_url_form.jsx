@@ -36,7 +36,7 @@ export default class edit_post_url_form extends React.Component {
 		if (sessionStorage.getItem("cookie")) {
 			const post_title = encodeURIComponent(this.props.match.params.Post);
 
-			const a = axios
+			axios
 				.get("http://localhost:4000/posts/getPost/" + post_title)
 				.then((response) => {
 					const new_post = {
