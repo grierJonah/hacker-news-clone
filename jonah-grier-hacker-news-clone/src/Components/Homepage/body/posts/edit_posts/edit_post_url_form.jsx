@@ -34,23 +34,29 @@ export default class edit_post_url_form extends React.Component {
 		event.preventDefault();
 
 		if (sessionStorage.getItem("cookie")) {
-			const newBlogPost = {
-				title: this.sanitizeTitle(this.state.title),
-				url: this.state.url,
-				body: "",
-				username: sessionStorage.getItem("username"),
-			};
+			const post_title = encodeURIComponent(this.props.match.params.Post);
 
-			axios
-				.post("http://localhost:4000/posts/add_url_post", newBlogPost)
-				.then((response) => console.log("Response:", response.data));
+			const a = axios
+				.get("http://localhost:4000/posts/getPost/" + post_title)
+				.then((response) => {
+					const new_post = {
+						id: response.data._id,
+						title: this.state.title,
+						url: this.state.url,
+						username: sessionStorage.getItem("username"),
+					};
+					axios
+						.put(
+							"http://localhost:4000/posts/edit_url_post/" +
+								post_title,
+							new_post
+						)
+						.then((res) =>
+							console.log("Finished editing post", res)
+						);
 
-			document.location = "/" + newBlogPost.title;
-			this.setState({
-				title: "",
-				url: "",
-				username: "",
-			});
+					// document.location = "/";
+				});
 		} else {
 			document.location = "../authenticate";
 		}

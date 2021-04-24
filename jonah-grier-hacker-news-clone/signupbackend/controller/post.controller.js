@@ -51,15 +51,26 @@ router.delete('/getPostById/:id', (req, res) => {
         error => res.status(500).send(error));
 })
 
-router.put('/edit_post/:title', (req, res) => {
-    console.log("Editing post by id:", req.params);
-    // const obj = JSON.parse(JSON.stringify(req.body))
-    // console.log("Editing comment body:", obj);
+router.put('/edit_body_post/:title', (req, res) => {
+    console.log("Editing post by title:", req.params);
+    const obj = JSON.parse(JSON.stringify(req.body))
+    console.log("Editing post body:", obj);
 
 
-    // return PostModel.editComment(req.params.title, obj.body)
-    //     .then(comment => (res.status(200).send(comment)),
-    //     error => res.status(401).send(error));
+    return PostModel.editPostBody(obj.id, obj.title, obj.body)
+        .then(comment => (res.status(200).send(comment)),
+        error => res.status(401).send(error));
+})
+
+router.put('/edit_url_post/:title', (req, res) => {
+    console.log("Editing post by title:", req.params);
+    const obj = JSON.parse(JSON.stringify(req.body))
+    console.log("Editing post body:", obj);
+
+
+    return PostModel.editPostBody(obj.id, obj.title, obj.body)
+        .then(comment => (omment), res.status(200).send(comment)),
+        error => res.status(401).send(error));
 })
 
 
