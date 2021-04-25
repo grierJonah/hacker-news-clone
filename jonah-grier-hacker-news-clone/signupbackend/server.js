@@ -14,7 +14,7 @@ dotenv.config();
 
 mongoose.connect(process.env.DATABASE_ACCESS, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }, () => console.log('Database Connected'))
 
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.BACKEND_PORT || 4000);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());

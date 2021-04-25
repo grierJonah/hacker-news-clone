@@ -71,7 +71,7 @@ export default class edit_post_form extends React.Component {
 				.put("/comments/edit_comment/" + id, new_comment)
 				.then((res) => console.log("Finished editing!"));
 
-			// document.location = this.props.history.goBack();
+			document.location = "./";
 		} else {
 			document.location = "../authenticate";
 		}

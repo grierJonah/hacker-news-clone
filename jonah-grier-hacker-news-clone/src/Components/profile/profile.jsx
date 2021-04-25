@@ -38,7 +38,7 @@ const Profile = () => {
 							<a href="/profile">Profile</a>
 						</li>
 						<li id="user-settings">
-							<a href="/settings-page">Settings</a>
+							<a href="">Settings</a>
 						</li>
 						<li id="user-home">
 							<a href="../">Homepage</a>
