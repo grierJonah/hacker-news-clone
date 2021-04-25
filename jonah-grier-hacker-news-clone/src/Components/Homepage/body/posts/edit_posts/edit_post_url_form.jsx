@@ -55,7 +55,7 @@ export default class edit_post_url_form extends React.Component {
 							console.log("Finished editing post", res)
 						);
 
-					// document.location = "/";
+					document.location = "/";
 				});
 		} else {
 			document.location = "../authenticate";

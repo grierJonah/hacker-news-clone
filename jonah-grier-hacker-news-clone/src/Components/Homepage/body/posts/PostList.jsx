@@ -52,7 +52,7 @@ class PostList extends React.Component {
 	}
 
 	showPosts() {
-		console.log("Post list, State: ", this.state);
+		console.log("Post List State:", this.state);
 		return this.state.posts.map((post, index) => {
 			if (post.username === sessionStorage.getItem("username")) {
 				return (
@@ -116,14 +116,17 @@ class PostList extends React.Component {
 
 	getPosts() {
 		axios
-			.get("/posts/getAllPosts")
+			.get("http://localhost:4000/posts/getAllPosts")
 			.then((response) => {
-				console.log(response);
+				console.log(
+					"Get all posts response (PostList.jsx): ",
+					response
+				);
 				const data = response.data;
 				this.setState({ posts: data });
 			})
-			.catch(() => {
-				console.log("Error retrieving data!");
+			.catch((error) => {
+				console.log("Error retrieving data (PostList.jsx): ", error);
 			});
 	}
 
