@@ -52,6 +52,7 @@ class PostList extends React.Component {
 	}
 
 	showPosts() {
+		console.log("Post list, State: ", this.state);
 		return this.state.posts.map((post, index) => {
 			if (post.username === sessionStorage.getItem("username")) {
 				return (
